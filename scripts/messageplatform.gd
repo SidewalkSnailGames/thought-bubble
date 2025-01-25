@@ -14,17 +14,14 @@ var color_map = {
 	Type.GREEN: [Color(0.0, 1, 0.0), Color(1, 1, 1)],
 }
 
-var msg
-var msgLabel
+@onready var msg = $msgBox
+@onready var msgLabel = $MarginContainer/Label
+
 @export var msgText : String = "Hello! This is a message!"
 @export var msgType : Type
 
 
 func _ready():
-	#Declare variables
-	msg = $msgBox
-	msgLabel = $MarginContainer/Label
-	
 	#Box color
 	msg.modulate = color_map[msgType][0]
 	
@@ -38,7 +35,6 @@ func _process(delta):
 	if Engine.is_editor_hint():
 		_size_collision_shape()
 	
-
 func _size_collision_shape():
 	var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
 	
