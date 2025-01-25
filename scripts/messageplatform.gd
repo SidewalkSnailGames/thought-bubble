@@ -36,7 +36,6 @@ func _process(delta):
 	msgLabel.text = msgText
 
 	if Engine.is_editor_hint():
-		print("running??")
 		_size_collision_shape()
 	
 
