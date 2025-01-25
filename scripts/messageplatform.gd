@@ -1,3 +1,4 @@
+@tool
 extends MarginContainer
 
 enum Type {
@@ -5,11 +6,29 @@ enum Type {
 	GRAY,
 	GREEN,
 }
+
+#hash map for color values
+var color_map = {
+	Type.BLUE: [Color(0.48, 0.72, 0.99), Color(1, 1, 1)],
+	Type.GRAY: [Color(0.8, 0.8, 0.8), Color(0, 0, 0)],
+	Type.GREEN: [Color(0.0, 1, 0.0), Color(1, 1, 1)],
+}
+
 var msg
-@export var msgText : Label
+var msgLabel
+@export var msgText : String = "Hello! This is a message!"
 @export var msgType : Type
 
 func _ready():
+	#Declare variables
 	msg = $msgBox
-	msg.modulate = Color (0.48, 0.72, 0.99)
-	msgText.add_theme_color_override("font_color", Color(1, 1, 1))
+	msgLabel = $MarginContainer/Label
+	
+	#Box color
+	msg.modulate = color_map[msgType][0]
+	
+	#Text color
+	msgLabel.add_theme_color_override("font_color", color_map[msgType][1])
+
+func _process(delta):
+	msgLabel.text = msgText
