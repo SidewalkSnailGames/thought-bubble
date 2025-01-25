@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://wyksy6jberae"]
+
+[ext_resource type="Shader" path="res://scenes/background.gdshader" id="1_hvajg"]
+[ext_resource type="Texture2D" uid="uid://dld4l4t0tm8e2" path="res://assets/bg/Sky_Day_BlueSky_Equirect.png" id="2_6yeui"]
+[ext_resource type="Texture2D" uid="uid://2md7mmyslwhc" path="res://assets/bg/city.png" id="2_dkv73"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8w0go"]
+shader = ExtResource("1_hvajg")
+shader_parameter/scroll_speed = null
+
+[node name="background" type="Node2D"]
+
+[node name="skybox" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_8w0go")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2048.0
+offset_top = -1024.0
+offset_right = 2048.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6yeui")
+
+[node name="cityscape" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_8w0go")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1463.0
+offset_top = 166.0
+offset_right = 1474.0
+offset_bottom = 698.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dkv73")
+stretch_mode = 1

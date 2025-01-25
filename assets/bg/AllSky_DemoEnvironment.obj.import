@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ntny6m0l0gu4"
+path="res://.godot/imported/AllSky_DemoEnvironment.obj-c80cc41172d8d51bf3f3859e9d0b1068.mesh"
+
+[deps]
+
+files=["res://.godot/imported/AllSky_DemoEnvironment.obj-c80cc41172d8d51bf3f3859e9d0b1068.mesh"]
+
+source_file="res://assets/bg/AllSky_DemoEnvironment.obj"
+dest_files=["res://.godot/imported/AllSky_DemoEnvironment.obj-c80cc41172d8d51bf3f3859e9d0b1068.mesh", "res://.godot/imported/AllSky_DemoEnvironment.obj-c80cc41172d8d51bf3f3859e9d0b1068.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
