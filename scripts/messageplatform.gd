@@ -20,17 +20,15 @@ var color_map = {
 @export var msgText : String = "Hello! This is a message!"
 @export var msgType : Type
 
-
-func _ready():
-	#Box color
-	msg.modulate = color_map[msgType][0]
+func _process(delta):
+	#Text label
+	msgLabel.text = msgText
 	
 	#Text color
 	msgLabel.add_theme_color_override("font_color", color_map[msgType][1])
-
-
-func _process(delta):
-	msgLabel.text = msgText
+	
+	#Box color
+	msg.modulate = color_map[msgType][0]
 
 	if Engine.is_editor_hint():
 		_size_collision_shape()
