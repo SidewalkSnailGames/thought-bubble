@@ -6,10 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ilwh"]
 size = Vector2(189, 332)
 
-[node name="messageplatform" type="MarginContainer"]
+[node name="messageplatform" type="MarginContainer" node_paths=PackedStringArray("msgText")]
 offset_right = 641.0
 offset_bottom = 95.0
 script = ExtResource("1_tkeb6")
+msgText = NodePath("MarginContainer/Label")
 
 [node name="msgBox" type="NinePatchRect" parent="."]
 layout_mode = 2
