@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dixbhqb24sr41" path="res://assets/messagebox.png" id="2_0ckfn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ilwh"]
-size = Vector2(95, 641)
+size = Vector2(100, 641)
 
 [node name="messageplatform" type="MarginContainer"]
 offset_right = 641.0
@@ -29,16 +29,18 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 0
 
 [node name="Label" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(75, 100)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 text = "Hello! This is a message!"
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(320.5, 47.5)
+position = Vector2(320.5, 50)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_7ilwh")
 one_way_collision_margin = 0.0
