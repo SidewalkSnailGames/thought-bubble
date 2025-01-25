@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://nxryqbpliqb1"]
+
+[node name="Node2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+debug_color = Color(0, 0.6, 0.709804, 0.784314)
