@@ -9,9 +9,9 @@ enum Type {
 
 #hash map for color values
 var color_map = {
-	Type.BLUE: [Color(0.48, 0.72, 0.99), Color(1, 1, 1)],
-	Type.GRAY: [Color(0.8, 0.8, 0.8), Color(0, 0, 0)],
-	Type.GREEN: [Color(0.0, 1, 0.0), Color(1, 1, 1)],
+	Type.BLUE: [Color(57.0/255.0, 161.0/255.0, 249.0/255.0), Color(1, 1, 1)],
+	Type.GRAY: [Color(203.0/255.0, 202.0/255.0, 197.0/255.0), Color(0, 0, 0)],
+	Type.GREEN: [Color(42.0/255.0, 189.0/255.0, 72.0/255.0), Color(1, 1, 1)],
 }
 
 @onready var msg = $msgBox
