@@ -12,8 +12,8 @@ offset_bottom = 630.0
 msgText = "Hello! This is a message! drgdrgddfg"
 
 [node name="messageplatform2" parent="." instance=ExtResource("2_mqrx6")]
-offset_left = 9.0
-offset_top = 317.0
-offset_right = 650.0
-offset_bottom = 412.0
-
+offset_left = 1.0
+offset_top = 351.0
+offset_right = 642.0
+offset_bottom = 492.0
+msgText = "Hello! This is a message! sfsefsefsdf"

@@ -30,14 +30,15 @@ func _process(delta):
 	#Box color
 	msg.modulate = color_map[msgType][0]
 
+func _physics_process(delta):
 	if Engine.is_editor_hint():
 		_size_collision_shape()
 	
 func _size_collision_shape():
 	var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
 	
-	collision_shape_2d.shape.size.x = size.y
-	collision_shape_2d.shape.size.y = size.x
+	collision_shape_2d.shape.size.x = size.x
+	collision_shape_2d.shape.size.y = size.y
 	
 	collision_shape_2d.position.x = size.x / 2
 	collision_shape_2d.position.y = size.y / 2
