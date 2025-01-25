@@ -1,19 +1,101 @@
-[gd_scene load_steps=2 format=3 uid="uid://be8ile0eybqw2"]
+[gd_scene load_steps=3 format=3 uid="uid://be8ile0eybqw2"]
 
-[ext_resource type="PackedScene" uid="uid://cawksimn5vqt2" path="res://scenes/messageplatform.tscn" id="2_mqrx6"]
+[ext_resource type="PackedScene" uid="uid://do00o5r6ncrpw" path="res://scenes/platform.tscn" id="1_5xg23"]
+[ext_resource type="PackedScene" uid="uid://v5h7jujyjrfn" path="res://scenes/messageplatform.tscn" id="2_eqcfc"]
 
 [node name="Level1" type="Node2D"]
 
-[node name="messageplatform" parent="." instance=ExtResource("2_mqrx6")]
-offset_left = 498.0
-offset_top = 535.0
-offset_right = 1139.0
-offset_bottom = 630.0
-msgText = "Hello! This is a message! drgdrgddfg"
+[node name="Platform" parent="." instance=ExtResource("1_5xg23")]
+position = Vector2(1100, 749)
 
-[node name="messageplatform2" parent="." instance=ExtResource("2_mqrx6")]
-offset_left = 1.0
-offset_top = 351.0
-offset_right = 642.0
-offset_bottom = 492.0
-msgText = "Hello! This is a message! sfsefsefsdf"
+[node name="Platform2" parent="." instance=ExtResource("1_5xg23")]
+position = Vector2(532, 740)
+
+[node name="Platform5" parent="." instance=ExtResource("1_5xg23")]
+position = Vector2(793, 736)
+
+[node name="Platform6" parent="." instance=ExtResource("1_5xg23")]
+position = Vector2(946, 743)
+
+[node name="Platform3" parent="." instance=ExtResource("1_5xg23")]
+position = Vector2(404, 736)
+
+[node name="Platform4" parent="." instance=ExtResource("1_5xg23")]
+position = Vector2(656, 735)
+
+[node name="messageplatform" parent="." instance=ExtResource("2_eqcfc")]
+offset_left = 16.0
+offset_top = 533.0
+offset_right = 740.0
+offset_bottom = 628.0
+msgText = "Sounds good see you there"
+
+[node name="messageplatform2" parent="." instance=ExtResource("2_eqcfc")]
+offset_left = 556.0
+offset_top = 360.0
+offset_right = 1476.0
+offset_bottom = 501.0
+msgText = "Yeah sure! 😊 lets meet at Bubbles Coffee at 4pm"
+
+[node name="messageplatform3" parent="." instance=ExtResource("2_eqcfc")]
+offset_left = 14.0
+offset_top = 199.0
+offset_right = 1080.0
+offset_bottom = 294.0
+msgText = "And you can tell me all about your day 😊"
+
+[node name="messageplatform4" parent="." instance=ExtResource("2_eqcfc")]
+offset_left = 13.0
+offset_top = -4.0
+offset_right = 1697.0
+offset_bottom = 91.0
+msgText = "Would you want to go get some coffee later today, and we can talk?"
+
+[node name="messageplatform5" parent="." instance=ExtResource("2_eqcfc")]
+offset_left = 4.0
+offset_top = -204.0
+offset_right = 1256.0
+offset_bottom = -109.0
+msgText = "There’s something I’ve been meaning to talk to you about"
+
+[node name="messageplatform6" parent="." instance=ExtResource("2_eqcfc")]
+offset_left = 1096.0
+offset_top = -411.0
+offset_right = 1303.0
+offset_bottom = -311.0
+msgText = "Yeah? "
+
+[node name="messageplatform7" parent="." instance=ExtResource("2_eqcfc")]
+offset_left = 12.0
+offset_top = -540.0
+offset_right = 310.0
+offset_bottom = -445.0
+msgText = "Hey Ann? "
+
+[node name="messageplatform8" parent="." instance=ExtResource("2_eqcfc")]
+offset_left = 3.0
+offset_top = -718.0
+offset_right = 727.0
+offset_bottom = -623.0
+msgText = "Everything okay? I’m alright"
+
+[node name="messageplatform9" parent="." instance=ExtResource("2_eqcfc")]
+offset_left = 620.0
+offset_top = -908.0
+offset_right = 1072.0
+offset_bottom = -813.0
+msgText = "How about you?"
+
+[node name="messageplatform10" parent="." instance=ExtResource("2_eqcfc")]
+offset_left = 617.0
+offset_top = -1116.0
+offset_right = 1869.0
+offset_bottom = -1021.0
+msgText = "Hey James! 😊 I’m good, had a long day today :/"
+
+[node name="messageplatform11" parent="." instance=ExtResource("2_eqcfc")]
+offset_left = 9.0
+offset_top = -1312.0
+offset_right = 773.0
+offset_bottom = -1217.0
+msgText = "Hey Ann! How are you doing?"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cawksimn5vqt2"]
+[gd_scene load_steps=4 format=3 uid="uid://v5h7jujyjrfn"]
 
 [ext_resource type="Script" path="res://scripts/messageplatform.gd" id="1_tkeb6"]
 [ext_resource type="Texture2D" uid="uid://dixbhqb24sr41" path="res://assets/messagebox.png" id="2_0ckfn"]
