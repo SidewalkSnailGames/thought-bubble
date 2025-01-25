@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://do00o5r6ncrpw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5n0qu"]
+radius = 19.0
+height = 166.0
+
+[node name="Platform" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5n0qu")
+debug_color = Color(3.00817e-06, 0.591664, 0.0169967, 1)

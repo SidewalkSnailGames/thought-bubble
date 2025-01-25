@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://be8ile0eybqw2"]
+
+[ext_resource type="PackedScene" uid="uid://do00o5r6ncrpw" path="res://scenes/platform.tscn" id="1_5xg23"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_5xg23")]
+position = Vector2(1058, 445)
+
+[node name="Platform2" parent="." instance=ExtResource("1_5xg23")]
+position = Vector2(822, 327)
+
+[node name="Platform5" parent="." instance=ExtResource("1_5xg23")]
+position = Vector2(820, 283)
+
+[node name="Platform6" parent="." instance=ExtResource("1_5xg23")]
+position = Vector2(1060, 145)
+
+[node name="Platform3" parent="." instance=ExtResource("1_5xg23")]
+position = Vector2(824, 547)
+
+[node name="Platform4" parent="." instance=ExtResource("1_5xg23")]
+position = Vector2(1062, 629)
