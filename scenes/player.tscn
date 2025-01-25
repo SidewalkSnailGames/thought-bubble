@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://nxryqbpliqb1"]
+[gd_scene load_steps=4 format=3 uid="uid://nxryqbpliqb1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_rbwca"]
+[ext_resource type="Texture2D" uid="uid://b0epf57wyq4e3" path="res://assets/stickman.png" id="2_gtt10"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ujmxx"]
-radius = 13.0
-height = 52.0
+radius = 12.0
+height = 42.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rbwca")
 
+[node name="Stickman" type="Sprite2D" parent="."]
+position = Vector2(0, 0.961634)
+scale = Vector2(0.264852, 0.265337)
+texture = ExtResource("2_gtt10")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_ujmxx")
 debug_color = Color(0, 0.6, 0.709804, 0.784314)
 

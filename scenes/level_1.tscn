@@ -1,23 +1,18 @@
 [gd_scene load_steps=2 format=3 uid="uid://be8ile0eybqw2"]
 
-[ext_resource type="PackedScene" uid="uid://do00o5r6ncrpw" path="res://scenes/platform.tscn" id="1_5xg23"]
+[ext_resource type="PackedScene" uid="uid://cawksimn5vqt2" path="res://scenes/messageplatform.tscn" id="2_mqrx6"]
 
 [node name="Level1" type="Node2D"]
 
-[node name="Platform" parent="." instance=ExtResource("1_5xg23")]
-position = Vector2(1058, 445)
+[node name="messageplatform" parent="." instance=ExtResource("2_mqrx6")]
+offset_left = 498.0
+offset_top = 535.0
+offset_right = 1139.0
+offset_bottom = 630.0
+msgText = "Hello! This is a message! drgdrgddfg"
 
-[node name="Platform2" parent="." instance=ExtResource("1_5xg23")]
-position = Vector2(822, 327)
-
-[node name="Platform5" parent="." instance=ExtResource("1_5xg23")]
-position = Vector2(820, 283)
-
-[node name="Platform6" parent="." instance=ExtResource("1_5xg23")]
-position = Vector2(1060, 145)
-
-[node name="Platform3" parent="." instance=ExtResource("1_5xg23")]
-position = Vector2(824, 547)
-
-[node name="Platform4" parent="." instance=ExtResource("1_5xg23")]
-position = Vector2(1062, 629)
+[node name="messageplatform2" parent="." instance=ExtResource("2_mqrx6")]
+offset_left = 9.0
+offset_top = 317.0
+offset_right = 650.0
+offset_bottom = 412.0
