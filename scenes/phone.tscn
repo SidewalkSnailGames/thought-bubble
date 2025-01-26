@@ -1,17 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3qi6tv234esb"]
+[gd_scene load_steps=3 format=3 uid="uid://d3qi6tv234esb"]
 
 [ext_resource type="Texture2D" uid="uid://d2bgqg0j7qcuw" path="res://assets/Phones/7A.png" id="1_x0t3c"]
 
-[node name="Phone" type="Control"]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="BoxMesh" id="BoxMesh_6ofdo"]
 
-[node name="7a" type="Sprite2D" parent="."]
-scale = Vector2(1.9, 1.9)
+[node name="Phone" type="Node2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-698.5, 463.5)
+scale = Vector2(1997, 1991)
+mesh = SubResource("BoxMesh_6ofdo")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+position = Vector2(2151, 468)
+scale = Vector2(2408, 1982)
+mesh = SubResource("BoxMesh_6ofdo")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="."]
+position = Vector2(809, -254)
+scale = Vector2(2408, 546)
+mesh = SubResource("BoxMesh_6ofdo")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="."]
+position = Vector2(830.5, 1687)
+scale = Vector2(5065, 542)
+mesh = SubResource("BoxMesh_6ofdo")
+
+[node name="phone" type="Sprite2D" parent="."]
+position = Vector2(613.25, 726.875)
+scale = Vector2(4.37812, 4.37812)
 texture = ExtResource("1_x0t3c")
