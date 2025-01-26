@@ -53,6 +53,7 @@ offset_right = 6110.0
 offset_bottom = 1024.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.932658, 0.995655)
 texture = ExtResource("2_6yeui")
 metadata/_edit_use_anchors_ = true
 
@@ -71,6 +72,28 @@ offset_bottom = 1023.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_6yeui")
+metadata/_edit_use_anchors_ = true
+
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+repeat_size = Vector2(1, 0)
+autoscroll = Vector2(100, 0)
+repeat_times = 5
+follow_viewport = false
+
+[node name="clouds" type="TextureRect" parent="Parallax2D3"]
+material = SubResource("ShaderMaterial_8w0go")
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2048.0
+offset_top = -1024.0
+offset_right = 2048.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
@@ -95,8 +118,8 @@ texture = ExtResource("2_dkv73")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
 modulate = Color(0.141176, 0.109804, 0.109804, 1)
-position = Vector2(234.5, 886)
-scale = Vector2(10319, 462)
+position = Vector2(234.5, 976)
+scale = Vector2(10319, 706)
 mesh = SubResource("BoxMesh_pme2c")
 texture = SubResource("CanvasTexture_6451x")
 
