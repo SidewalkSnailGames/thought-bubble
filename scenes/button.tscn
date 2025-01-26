@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cms0hj1u25dr3"]
+
+[ext_resource type="Script" path="res://scripts/button.gd" id="1_xgeqr"]
+[ext_resource type="Texture2D" uid="uid://cmpoybq2sm24m" path="res://assets/buttonpress.png" id="2_26255"]
+[ext_resource type="Texture2D" uid="uid://dc5nt2kaiogxr" path="res://assets/buttonbase.png" id="3_h2ft1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkh86"]
+size = Vector2(120, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkipg"]
+size = Vector2(201, 66)
+
+[node name="Button" type="Node2D"]
+script = ExtResource("1_xgeqr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 15.5)
+shape = SubResource("RectangleShape2D_rkh86")
+
+[node name="Buttonpress" type="Sprite2D" parent="."]
+texture = ExtResource("2_26255")
+
+[node name="Buttonbase" type="Sprite2D" parent="."]
+texture = ExtResource("3_h2ft1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 67)
+shape = SubResource("RectangleShape2D_lkipg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
