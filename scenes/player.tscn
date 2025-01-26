@@ -1,11 +1,11 @@
-[gd_scene load_steps=171 format=3 uid="uid://nxryqbpliqb1"]
+[gd_scene load_steps=166 format=3 uid="uid://nxryqbpliqb1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_rbwca"]
-[ext_resource type="Texture2D" uid="uid://b0epf57wyq4e3" path="res://assets/stickman.png" id="2_gtt10"]
 [ext_resource type="Texture2D" uid="uid://d0o58vdl6wvfi" path="res://animations/falling-loop.png" id="3_1y5yn"]
 [ext_resource type="Texture2D" uid="uid://bwe6d5c5nra63" path="res://animations/idle-loop.png" id="4_p1or3"]
 [ext_resource type="Texture2D" uid="uid://mpq1yj4hcefn" path="res://animations/jump.png" id="5_1ryno"]
 [ext_resource type="Texture2D" uid="uid://b4sf2u3y6f0ac" path="res://animations/landing.png" id="6_dsx00"]
+[ext_resource type="Script" path="res://scripts/playeranimation.gd" id="7_0wg25"]
 [ext_resource type="Texture2D" uid="uid://djff80jo8akfx" path="res://animations/run-loop.png" id="7_ex775"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ujmxx"]
@@ -339,26 +339,6 @@ region = Rect2(8192, 5120, 1024, 1024)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnp6j"]
 atlas = ExtResource("4_p1or3")
 region = Rect2(9216, 5120, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wxymd"]
-atlas = ExtResource("5_1ryno")
-region = Rect2(0, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wn7mg"]
-atlas = ExtResource("5_1ryno")
-region = Rect2(1024, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_65kgp"]
-atlas = ExtResource("5_1ryno")
-region = Rect2(2048, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2o8hv"]
-atlas = ExtResource("5_1ryno")
-region = Rect2(3072, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ob2v4"]
-atlas = ExtResource("5_1ryno")
-region = Rect2(4096, 0, 1024, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdyg1"]
 atlas = ExtResource("5_1ryno")
@@ -916,21 +896,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wxymd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wn7mg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_65kgp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2o8hv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ob2v4")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_kdyg1")
 }, {
 "duration": 1.0,
@@ -993,9 +958,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ernse")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
-"speed": 30.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1097,7 +1062,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_68whi")
 }],
-"loop": true,
+"loop": false,
 "name": &"landing",
 "speed": 30.0
 }, {
@@ -1170,16 +1135,14 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rbwca")
 
-[node name="Stickman" type="Sprite2D" parent="."]
-position = Vector2(0, 0.961634)
-scale = Vector2(0.264852, 0.265337)
-texture = ExtResource("2_gtt10")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_ujmxx")
 debug_color = Color(0, 0.6, 0.709804, 0.784314)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.0844727, 0.0844727)
 sprite_frames = SubResource("SpriteFrames_8gyar")
-animation = &"idle-loop"
+animation = &"jump"
+script = ExtResource("7_0wg25")

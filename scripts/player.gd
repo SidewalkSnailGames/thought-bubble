@@ -5,6 +5,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -650.0
 
 var can_jump = true
+@onready var animator = $AnimatedSprite2D
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -13,6 +14,7 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and can_jump:
+		animator.play("jump")
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -20,6 +22,7 @@ func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
+		animator.flip_h = direction > 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 

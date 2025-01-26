@@ -4,25 +4,25 @@
 [ext_resource type="PackedScene" uid="uid://yfj8tbgx4x4t" path="res://scenes/messageplatformreverse.tscn" id="2_e0q2o"]
 [ext_resource type="PackedScene" uid="uid://v5h7jujyjrfn" path="res://scenes/messageplatform.tscn" id="2_eqcfc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddjvc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vh33o"]
 size = Vector2(730, 221)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbgne"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dux0t"]
 size = Vector2(730, 293)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfme0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcxqy"]
 size = Vector2(730, 221)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wm01s"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qma4s"]
 size = Vector2(730, 293)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dh4fk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15cyh"]
 size = Vector2(730, 293)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_66jo0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ih35r"]
 size = Vector2(730, 365)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsnm7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2pf0"]
 size = Vector2(730, 221)
 
 [node name="Level1" type="Node2D"]
@@ -48,7 +48,7 @@ text = "Hey James! What are you up to? 😊"
 
 [node name="CollisionShape2D" parent="ann-1/StaticBody2D" index="0"]
 position = Vector2(365, 110.5)
-shape = SubResource("RectangleShape2D_ddjvc")
+shape = SubResource("RectangleShape2D_vh33o")
 
 [node name="james-1" parent="." instance=ExtResource("2_e0q2o")]
 offset_left = 239.0
@@ -78,7 +78,7 @@ text = "Ooooh I love retro games, can we play Chrono Trigger? :D"
 
 [node name="CollisionShape2D" parent="ann-2/StaticBody2D" index="0"]
 position = Vector2(365, 146.5)
-shape = SubResource("RectangleShape2D_wbgne")
+shape = SubResource("RectangleShape2D_dux0t")
 
 [node name="ann-3" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -101,7 +101,7 @@ text = "Oh, okay a movie is alright…"
 
 [node name="CollisionShape2D" parent="ann-3/StaticBody2D" index="0"]
 position = Vector2(365, 110.5)
-shape = SubResource("RectangleShape2D_nfme0")
+shape = SubResource("RectangleShape2D_mcxqy")
 
 [node name="james-2" parent="." instance=ExtResource("2_e0q2o")]
 offset_left = 241.0
@@ -138,7 +138,7 @@ text = "Mine too, the ost is Incredible! How about I head over around 5:30pm?"
 
 [node name="CollisionShape2D" parent="ann-4/StaticBody2D" index="0"]
 position = Vector2(365, 146.5)
-shape = SubResource("RectangleShape2D_wm01s")
+shape = SubResource("RectangleShape2D_qma4s")
 
 [node name="ann-5" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -161,7 +161,7 @@ text = "Alright…I guess we can play something else. How is 5:30pm"
 
 [node name="CollisionShape2D" parent="ann-5/StaticBody2D" index="0"]
 position = Vector2(365, 146.5)
-shape = SubResource("RectangleShape2D_dh4fk")
+shape = SubResource("RectangleShape2D_15cyh")
 
 [node name="ann-6" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -184,7 +184,7 @@ text = "Yes! Let’s make some pasta! Want me to pick up some bread to make garl
 
 [node name="CollisionShape2D" parent="ann-6/StaticBody2D" index="0"]
 position = Vector2(365, 182.5)
-shape = SubResource("RectangleShape2D_66jo0")
+shape = SubResource("RectangleShape2D_ih35r")
 
 [node name="ann-7" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -207,7 +207,7 @@ text = "I guess a TV show could work…?"
 
 [node name="CollisionShape2D" parent="ann-7/StaticBody2D" index="0"]
 position = Vector2(365, 110.5)
-shape = SubResource("RectangleShape2D_jsnm7")
+shape = SubResource("RectangleShape2D_f2pf0")
 
 [node name="james-4" parent="." instance=ExtResource("2_e0q2o")]
 offset_left = 239.0
