@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm5c038g6onob"]
+
+[ext_resource type="Texture2D" uid="uid://cd207xyjlvad2" path="res://assets/cloud.png" id="1_kbo2t"]
+[ext_resource type="Script" path="res://nojumpcloud.gd" id="2_2auhu"]
+[ext_resource type="Script" path="res://scenes/cloudchangecolor.gd" id="2_pysj0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j45lk"]
+size = Vector2(343, 139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upweo"]
+size = Vector2(346, 20)
+
+[node name="NoJumpPlatform" type="StaticBody2D"]
+
+[node name="Cloud" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kbo2t")
+script = ExtResource("2_pysj0")
+cloudColor = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 12.5)
+shape = SubResource("RectangleShape2D_j45lk")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_2auhu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -61)
+shape = SubResource("RectangleShape2D_upweo")
+debug_color = Color(1, 0, 0.0857318, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
