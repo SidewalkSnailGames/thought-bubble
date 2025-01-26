@@ -12,7 +12,7 @@ scale = Vector2(1997, 1991)
 mesh = SubResource("BoxMesh_6ofdo")
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
-position = Vector2(2151, 468)
+position = Vector2(2159, 449)
 scale = Vector2(2408, 1982)
 mesh = SubResource("BoxMesh_6ofdo")
 

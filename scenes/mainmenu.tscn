@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://541w5qqccqkh"]
+[gd_scene load_steps=7 format=3 uid="uid://541w5qqccqkh"]
 
 [ext_resource type="PackedScene" uid="uid://wyksy6jberae" path="res://scenes/background.tscn" id="1_hypwy"]
+[ext_resource type="Script" path="res://mainmenu.gd" id="1_lnhkg"]
 [ext_resource type="PackedScene" uid="uid://d3qi6tv234esb" path="res://scenes/phone.tscn" id="2_ra7vm"]
 [ext_resource type="AudioStream" uid="uid://c8e76lc8ostb7" path="res://assets/bg/Music/Story of Maple.wav" id="3_fw8qb"]
+[ext_resource type="Texture2D" uid="uid://u4ag0w7yx5rf" path="res://assets/thoughtbubblelogo.png" id="4_lcq4x"]
+[ext_resource type="Texture2D" uid="uid://btqooaavfhto6" path="res://assets/sidewalksnailgameslogo.PNG" id="6_1dxk4"]
 
-[node name="mainmenu" type="Node2D"]
+[node name="mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lnhkg")
 
 [node name="background" parent="." instance=ExtResource("1_hypwy")]
 position = Vector2(1411, 239)
@@ -14,22 +20,36 @@ scale = Vector2(0.336543, 0.336543)
 position = Vector2(157, 103)
 scale = Vector2(0.309317, 0.311076)
 
-[node name="Button" type="Button" parent="."]
-offset_left = 574.0
-offset_top = 259.0
-offset_right = 911.0
-offset_bottom = 371.0
-theme_override_font_sizes/font_size = 64
-text = "Play"
-
-[node name="Button2" type="Button" parent="."]
-offset_left = 574.0
-offset_top = 402.0
-offset_right = 911.0
-offset_bottom = 514.0
-theme_override_font_sizes/font_size = 64
-text = "Exit"
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_fw8qb")
 autoplay = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 384.0
+offset_right = 1037.0
+offset_bottom = 580.0
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Play"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Exit"
+
+[node name="Thoughtbubblelogo" type="Sprite2D" parent="."]
+position = Vector2(786, 210)
+scale = Vector2(0.696603, 0.696603)
+texture = ExtResource("4_lcq4x")
+
+[node name="Sidewalksnailgameslogo" type="Sprite2D" parent="."]
+position = Vector2(1103, 49)
+scale = Vector2(0.0398428, 0.0398428)
+texture = ExtResource("6_1dxk4")
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
