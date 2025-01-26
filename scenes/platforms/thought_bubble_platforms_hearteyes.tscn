@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct4cigshtkfsk"]
+
+[ext_resource type="Texture2D" uid="uid://djp8tnxf7tokk" path="res://assets/thought bubble platforms/Emotes4.png" id="1_s1s52"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xo37"]
+size = Vector2(182, 131)
+
+[node name="thought_bubble_platforms_empty" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -17.5)
+shape = SubResource("RectangleShape2D_5xo37")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.999985, -2.28882e-05)
+scale = Vector2(13.0625, 13.0625)
+texture = ExtResource("1_s1s52")

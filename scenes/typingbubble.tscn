@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhb6lb6apmks2"]
+
+[ext_resource type="Texture2D" uid="uid://bjla1ayug7vo0" path="res://animations/messagesheet.png" id="1_mgmwk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jikwl"]
+atlas = ExtResource("1_mgmwk")
+region = Rect2(0, 0, 336, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmfk0"]
+atlas = ExtResource("1_mgmwk")
+region = Rect2(336, 0, 336, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnskr"]
+atlas = ExtResource("1_mgmwk")
+region = Rect2(672, 0, 336, 336)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wpixm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jikwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmfk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnskr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Typingbubble" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wpixm")
+frame_progress = 0.092828
