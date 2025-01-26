@@ -21,11 +21,11 @@ var msgLabel
 @export var msgText : String = "Hello! This is a message!"
 @export var msgType : Type
 
-var collision_shape_2d: CollisionShape2D
+@onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
 var prev_x = 1
 var prev_y = 1
 
-var flag = 1
+var _collision_shape_dirty = 1
 
 func _ready():
 	msgLabel = $MarginContainer/Label
@@ -53,9 +53,9 @@ func _process(delta):
 		msg.modulate = color_map[msgType][0]
 		_size_collision_shape()
 	else:
-		if flag == 1:
+		if _collision_shape_dirty == 1:
 			_size_collision_shape()
-			flag = 2
+			_collision_shape_dirty = 0
 
 
 func _physics_process(delta):
@@ -64,8 +64,8 @@ func _physics_process(delta):
 	
 	
 func _size_collision_shape():
-	# is this a binary search problem??
-	#msgLabel.custom_minimum_size = set_best_size()
+	if not Engine.is_editor_hint():
+		print('testtt')
 	
 	collision_shape_2d = $StaticBody2D/CollisionShape2D
 	collision_shape_2d.shape = RectangleShape2D.new()
@@ -77,20 +77,19 @@ func _size_collision_shape():
 	collision_shape_2d.position.y = $msgBox.size.y / 2
 
 
-func set_best_size():
-	var max_iterations = 5
-	msgLabel.size.x = 1
-	prev_y = msgLabel.size.y
+func set_collision_shape_dirty_flag():
+	'''
+	This is the beginning of a long chain of hasty and nasty workarounds...
+	Essentially, we set the collision shape dirty flag to 1, but we have to
+	wait until it does become 1, so we manually create a 0.01 sec timer for
+	this function to wait until we return, which will be helpful for when we
+	want to get the updated size of the chat bubble after we fill in James'
+	choices.
+	'''
+	set_deferred("_collision_shape_dirty", 1)
+	await get_tree().create_timer(0.01).timeout
+	print(_collision_shape_dirty)
 	
-	var i = 0
-	while i < max_iterations:
-		if msgLabel.size.y > prev_y:
-			# if too many rows, size up on x
-			msgLabel.size.x *= 2
-		elif msgLabel.size.y < prev_y:
-			msgLabel.size.x /= 2
-		else: # y == prev_y
-			break
-			
-		prev_y = msgLabel.size.y
-		i += 1
+func set_enabled(value: bool):
+	set_deferred("visible", value) # set visible value to enabled value
+	collision_shape_2d.set_deferred("disabled", !value) # if enabled value == false, set disabled to true

@@ -1,23 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://be8ile0eybqw2"]
+[gd_scene load_steps=11 format=3 uid="uid://be8ile0eybqw2"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_4bten"]
 [ext_resource type="PackedScene" uid="uid://yfj8tbgx4x4t" path="res://scenes/messageplatformreverse.tscn" id="2_e0q2o"]
 [ext_resource type="PackedScene" uid="uid://v5h7jujyjrfn" path="res://scenes/messageplatform.tscn" id="2_eqcfc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6dvo"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddjvc"]
 size = Vector2(730, 221)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvnno"]
-size = Vector2(80, 80)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbgne"]
+size = Vector2(730, 293)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_43tj8"]
-size = Vector2(80, 80)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfme0"]
+size = Vector2(730, 221)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_11ldi"]
-size = Vector2(80, 80)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wm01s"]
+size = Vector2(730, 293)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_moyjm"]
-size = Vector2(80, 80)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dh4fk"]
+size = Vector2(730, 293)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66jo0"]
+size = Vector2(730, 365)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsnm7"]
+size = Vector2(730, 221)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_4bten")
@@ -42,18 +48,16 @@ text = "Hey James! What are you up to? 😊"
 
 [node name="CollisionShape2D" parent="ann-1/StaticBody2D" index="0"]
 position = Vector2(365, 110.5)
-shape = SubResource("RectangleShape2D_x6dvo")
+shape = SubResource("RectangleShape2D_ddjvc")
 
 [node name="james-1" parent="." instance=ExtResource("2_e0q2o")]
-visible = false
-offset_left = 417.0
-offset_top = 277.0
-offset_right = 1147.0
-offset_bottom = 498.0
-msgText = "Hey Ann! I’m getting ready to….. want to join me?"
+offset_left = 239.0
+offset_top = 279.0
+offset_right = 969.0
+offset_bottom = 500.0
+msgText = "Hey Ann! I’m getting ready to<...>... want to join me?"
 
 [node name="ann-2" parent="." instance=ExtResource("2_eqcfc")]
-visible = false
 custom_minimum_size = Vector2(34.07, 0)
 offset_top = 567.0
 offset_right = 730.0
@@ -73,11 +77,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Ooooh I love retro games, can we play Chrono Trigger? :D"
 
 [node name="CollisionShape2D" parent="ann-2/StaticBody2D" index="0"]
-position = Vector2(40, 40)
-shape = SubResource("RectangleShape2D_fvnno")
+position = Vector2(365, 146.5)
+shape = SubResource("RectangleShape2D_wbgne")
 
 [node name="ann-3" parent="." instance=ExtResource("2_eqcfc")]
-visible = false
 custom_minimum_size = Vector2(34.07, 0)
 offset_top = 567.0
 offset_right = 730.0
@@ -97,27 +100,24 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Oh, okay a movie is alright…"
 
 [node name="CollisionShape2D" parent="ann-3/StaticBody2D" index="0"]
-position = Vector2(40, 40)
-shape = SubResource("RectangleShape2D_43tj8")
+position = Vector2(365, 110.5)
+shape = SubResource("RectangleShape2D_nfme0")
 
 [node name="james-2" parent="." instance=ExtResource("2_e0q2o")]
-visible = false
-offset_left = 417.0
+offset_left = 241.0
 offset_top = 907.0
-offset_right = 1147.0
-offset_bottom = 1128.0
-msgText = "Yeah of course we can play some games! That’s actually one of my…..What time do you want to come over?"
+offset_right = 971.0
+offset_bottom = 1344.0
+msgText = "Yeah of course we can play some games! That’s actually one of my<...>! What time do you want to come over?"
 
 [node name="james-3" parent="." instance=ExtResource("2_e0q2o")]
-visible = false
-offset_left = 417.0
+offset_left = 241.0
 offset_top = 835.0
-offset_right = 1147.0
+offset_right = 971.0
 offset_bottom = 1128.0
-msgText = "We don’t have to watch a movie, maybe we can….instead 😊"
+msgText = "We don’t have to watch a movie, maybe we can<...> instead 😊"
 
 [node name="ann-4" parent="." instance=ExtResource("2_eqcfc")]
-visible = false
 custom_minimum_size = Vector2(34.07, 0)
 offset_top = 1397.0
 offset_right = 730.0
@@ -137,16 +137,15 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Mine too, the ost is Incredible! How about I head over around 5:30pm?"
 
 [node name="CollisionShape2D" parent="ann-4/StaticBody2D" index="0"]
-position = Vector2(40, 40)
-shape = SubResource("RectangleShape2D_11ldi")
+position = Vector2(365, 146.5)
+shape = SubResource("RectangleShape2D_wm01s")
 
 [node name="ann-5" parent="." instance=ExtResource("2_eqcfc")]
-visible = false
 custom_minimum_size = Vector2(34.07, 0)
-offset_top = 1397.0
+offset_top = 1725.0
 offset_right = 730.0
-offset_bottom = 1690.0
-msgText = "Mine too, the ost is Incredible! How about I head over around 5:30pm?"
+offset_bottom = 2018.0
+msgText = "Alright…I guess we can play something else. How is 5:30pm"
 msgType = 1
 metadata/_edit_group_ = true
 
@@ -158,14 +157,90 @@ modulate = Color(0.796078, 0.792157, 0.772549, 1)
 
 [node name="Label" parent="ann-5/MarginContainer" index="0"]
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Mine too, the ost is Incredible! How about I head over around 5:30pm?"
+text = "Alright…I guess we can play something else. How is 5:30pm"
 
 [node name="CollisionShape2D" parent="ann-5/StaticBody2D" index="0"]
-position = Vector2(40, 40)
-shape = SubResource("RectangleShape2D_moyjm")
+position = Vector2(365, 146.5)
+shape = SubResource("RectangleShape2D_dh4fk")
+
+[node name="ann-6" parent="." instance=ExtResource("2_eqcfc")]
+custom_minimum_size = Vector2(34.07, 0)
+offset_top = 2090.0
+offset_right = 730.0
+offset_bottom = 2383.0
+msgText = "Yes! Let’s make some pasta! Want me to pick up some bread to make garlic bread?"
+msgType = 1
+metadata/_edit_group_ = true
+
+[node name="Messagetrianglething" parent="ann-6/Control" index="0"]
+modulate = Color(0.796078, 0.792157, 0.772549, 1)
+
+[node name="msgBox" parent="ann-6" index="1"]
+modulate = Color(0.796078, 0.792157, 0.772549, 1)
+
+[node name="Label" parent="ann-6/MarginContainer" index="0"]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Yes! Let’s make some pasta! Want me to pick up some bread to make garlic bread?"
+
+[node name="CollisionShape2D" parent="ann-6/StaticBody2D" index="0"]
+position = Vector2(365, 182.5)
+shape = SubResource("RectangleShape2D_66jo0")
+
+[node name="ann-7" parent="." instance=ExtResource("2_eqcfc")]
+custom_minimum_size = Vector2(34.07, 0)
+offset_top = 2516.0
+offset_right = 730.0
+offset_bottom = 2737.0
+msgText = "I guess a TV show could work…?"
+msgType = 1
+metadata/_edit_group_ = true
+
+[node name="Messagetrianglething" parent="ann-7/Control" index="0"]
+modulate = Color(0.796078, 0.792157, 0.772549, 1)
+
+[node name="msgBox" parent="ann-7" index="1"]
+modulate = Color(0.796078, 0.792157, 0.772549, 1)
+
+[node name="Label" parent="ann-7/MarginContainer" index="0"]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "I guess a TV show could work…?"
+
+[node name="CollisionShape2D" parent="ann-7/StaticBody2D" index="0"]
+position = Vector2(365, 110.5)
+shape = SubResource("RectangleShape2D_jsnm7")
+
+[node name="james-4" parent="." instance=ExtResource("2_e0q2o")]
+offset_left = 239.0
+offset_top = 2799.0
+offset_right = 969.0
+offset_bottom = 3092.0
+msgText = "5:30 Works for me 😊 would you want to<...> as well?"
+
+[node name="james-5" parent="." instance=ExtResource("2_e0q2o")]
+offset_left = 241.0
+offset_top = 3159.0
+offset_right = 971.0
+offset_bottom = 3452.0
+msgText = "5:30 works, don’t worry I have plenty of<...> we’ll be okay!"
+
+[node name="james-6" parent="." instance=ExtResource("2_e0q2o")]
+offset_left = 241.0
+offset_top = 3517.0
+offset_right = 971.0
+offset_bottom = 3810.0
+msgText = "Garlic bread sounds good right now. Want to come over at 5:30pm?"
+
+[node name="james-7" parent="." instance=ExtResource("2_e0q2o")]
+offset_left = 239.0
+offset_top = 3850.0
+offset_right = 969.0
+offset_bottom = 4030.0
+msgText = "Okay, want to watch<...>?"
 
 [editable path="ann-1"]
 [editable path="ann-2"]
 [editable path="ann-3"]
 [editable path="ann-4"]
 [editable path="ann-5"]
+[editable path="ann-6"]
+[editable path="ann-7"]
