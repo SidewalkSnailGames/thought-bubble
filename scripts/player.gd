@@ -6,6 +6,8 @@ const JUMP_VELOCITY = -650.0
 
 var can_jump = true
 @onready var animator = $AnimatedSprite2D
+var jump_count = 0
+var max_jump = 2
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -13,9 +15,13 @@ func _physics_process(delta):
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor() and can_jump:
+	if is_on_floor():
+		jump_count = 0
+	
+	if Input.is_action_just_pressed("jump") and jump_count < max_jump and can_jump:
 		animator.play("jump")
 		velocity.y = JUMP_VELOCITY
+		jump_count =+ 1
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
