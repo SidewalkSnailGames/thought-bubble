@@ -4,20 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://dixbhqb24sr41" path="res://assets/messagebox.png" id="2_0ckfn"]
 [ext_resource type="Texture2D" uid="uid://drpfspd5aaned" path="res://assets/messagetrianglething.png" id="2_84kre"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhtnk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eiopu"]
 size = Vector2(641, 100)
 
 [node name="messageplatform" type="MarginContainer"]
 offset_right = 641.0
 offset_bottom = 95.0
 script = ExtResource("1_tkeb6")
-isTriangleRight = null
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
 size_flags_vertical = 8
 
 [node name="Messagetrianglething" type="Sprite2D" parent="Control"]
+modulate = Color(0.223529, 0.631373, 0.976471, 1)
 position = Vector2(27, -12)
 scale = Vector2(0.465, 0.465)
 texture = ExtResource("2_84kre")
@@ -52,6 +52,6 @@ autowrap_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(320.5, 50)
-shape = SubResource("RectangleShape2D_lhtnk")
+shape = SubResource("RectangleShape2D_eiopu")
 one_way_collision = true
 one_way_collision_margin = 5.0
