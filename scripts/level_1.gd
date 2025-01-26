@@ -2,6 +2,9 @@ extends Node2D
 
 const CHAT_VERT_SPACING = 58
 const END = "end"
+const TYPING_LENGTH = 2
+
+@onready var phone_screen_shape: CollisionShape2D = $"../PhoneScreen/CollisionShape2D"
 
 @export var script_name: String = "level_1_scripts.gd"
 var first_msg = "ann-1"
@@ -9,6 +12,10 @@ var last_msg = first_msg
 var scripts_node: Node2D
 var paths
 var msg_choices
+var new_scroll_position_y
+var offset = 0
+var new_position = Vector2()
+var typing_bubble = preload("res://scenes/typingbubble.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,7 +33,11 @@ func _ready() -> void:
 		if child.name == "Scripts": continue
 		child.set_enabled(false)
 		
+	await _wait()
+		
 	show_msg(first_msg)
+	
+	new_scroll_position_y = position.y
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,6 +49,11 @@ func _process(delta: float) -> void:
 	use James' previously updated chat bubble size to determine where on the
 	y-axis we should put Ann's response next.
 	'''
+	if not _check_floats_equal(new_scroll_position_y, position.y):
+		position.y = lerpf(position.y, new_scroll_position_y, 0.1)
+	else:
+		position.y = new_scroll_position_y
+		
 	# if no end choice/end, then prevent from pressing left/right
 	if get_next_msg_id(last_msg) == END: return
 	
@@ -48,15 +64,19 @@ func _process(delta: float) -> void:
 		choice = 0
 		await fill_in_msg(last_msg, choice)
 		_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
-		show_msg(new_msg)
-		await _wait()
+		show_typing_bubble()
+		await _wait(2)
+		await show_msg(new_msg)
 	elif Input.is_action_just_pressed("ui_right"): # bad choice
 		new_msg = paths[last_msg][1]
 		choice = 1
 		await fill_in_msg(last_msg, choice)
 		_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
-		show_msg(new_msg)
-		await _wait()
+		show_typing_bubble()
+		await _wait(2)
+		await show_msg(new_msg)
+	#await _wait()
+	
 	
 
 func fill_in_msg(msg_id, choice):
@@ -71,9 +91,20 @@ func fill_in_msg(msg_id, choice):
 	var s = og_text.split("<...>")
 	label.text = s[0] + " " + msg_choices[msg_id][choice] + s[1]
 	await msg.set_collision_shape_dirty_flag()
-	
 
-func show_msg(msg_id):	
+
+func show_typing_bubble():
+	pass
+	#await _wait()
+	#var bubble = typing_bubble.instantiate()
+	#add_child(bubble)
+	#bubble.set_deferred("position", new_position)
+	#await _wait()
+	#_move_dmhub_up()
+	#await _wait(TYPING_LENGTH)
+	#bubble.queue_free()
+
+func show_msg(msg_id):
 	var msg = get_node(msg_id)
 	msg.set_enabled(true)
 	last_msg = msg_id
@@ -82,12 +113,16 @@ func show_msg(msg_id):
 	# helps to wait for it to update the previous message's position
 	# before showing the next one
 	await msg.set_collision_shape_dirty_flag()
+	_move_dmhub_up()
 	
 	if (can_show_next_msg(msg_id)):
 		var next_msg = get_next_msg_id(msg_id)
 		_set_next_msg_pos(get_node(last_msg), get_node(next_msg))
+		show_typing_bubble()
+		await _wait(2)
 		show_msg(next_msg)
 		await _wait()
+		_move_dmhub_up()
 		
 
 func can_show_next_msg(msg_id):
@@ -99,7 +134,7 @@ func get_next_msg_id(msg_id):
 	
 
 func _set_next_msg_pos(prev_msg, next_msg):
-	var new_position = Vector2()
+	new_position = Vector2()
 	new_position.x = next_msg.position.x
 	new_position.y = prev_msg.position.y + prev_msg.size.y + CHAT_VERT_SPACING
 	next_msg.set_deferred("position", new_position)
@@ -107,3 +142,34 @@ func _set_next_msg_pos(prev_msg, next_msg):
 
 func _wait(seconds: float = 0.01):
 	await get_tree().create_timer(seconds).timeout
+	
+
+func _get_last_shown_msg():
+	var last_shown_msg = get_children()[0]
+	
+	for child in get_children():
+		if child.name == "Scripts": continue
+		if child.visible: last_shown_msg = child
+	
+	return last_shown_msg
+	
+
+func _get_dm_dimension():
+	var last_shown_msg = _get_last_shown_msg()
+	return (last_shown_msg.position.y + last_shown_msg.size.y) * scale.y - offset
+	
+
+func _check_floats_equal(a, b):
+	#print("a: %s, b: %s" % [a, b])
+	const e = 1
+	return (a - e) < b and b < (a + e)
+
+
+func _move_dmhub_up():
+	var dm_dimension = _get_dm_dimension()
+	if dm_dimension + CHAT_VERT_SPACING <= phone_screen_shape.shape.size.y: return
+	
+	# if overflowing, move the whole level up
+	var last_shown_msg = _get_last_shown_msg()
+	new_scroll_position_y = position.y - (dm_dimension - phone_screen_shape.shape.size.y) - CHAT_VERT_SPACING
+	offset += (dm_dimension - phone_screen_shape.shape.size.y) + CHAT_VERT_SPACING

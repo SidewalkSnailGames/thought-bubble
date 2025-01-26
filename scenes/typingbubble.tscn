@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhb6lb6apmks2"]
+[gd_scene load_steps=6 format=3 uid="uid://dfts3svqamoe1"]
 
 [ext_resource type="Texture2D" uid="uid://bjla1ayug7vo0" path="res://animations/messagesheet.png" id="1_mgmwk"]
 
@@ -34,5 +34,7 @@ animations = [{
 [node name="Typingbubble" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_wpixm")
-frame_progress = 0.092828
+frame = 2
+frame_progress = 0.558729

@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://dhubybh0dtipc"]
 
 [ext_resource type="PackedScene" path="res://scenes/bubble_piece.tscn" id="1_7nsye"]
-[ext_resource type="PackedScene" path="res://scenes/sublevel_platform.tscn" id="1_sq0mn"]
+[ext_resource type="PackedScene" uid="uid://dmps3ov2v0drf" path="res://scenes/sublevel_platform.tscn" id="1_sq0mn"]
 [ext_resource type="Script" path="res://scenes/label.gd" id="1_w725x"]
 [ext_resource type="PackedScene" uid="uid://nxryqbpliqb1" path="res://scenes/player.tscn" id="5_3i3xw"]
-[ext_resource type="PackedScene" uid="uid://bctihso0vxcwr" path="res://scenes/spike.tscn" id="5_hp04q"]
+[ext_resource type="PackedScene" path="res://scenes/spike.tscn" id="5_hp04q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snvrm"]
 size = Vector2(701, 20)
@@ -24,7 +24,7 @@ shape = SubResource("RectangleShape2D_snvrm")
 position = Vector2(692, 104.5)
 shape = SubResource("RectangleShape2D_vm7s8")
 
-[node name="Platforms" type="StaticBody2D" parent="."]
+[node name="Platforms" type="Node2D" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("1_sq0mn")]
 position = Vector2(108, 195)
