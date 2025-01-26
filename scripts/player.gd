@@ -20,6 +20,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("jump") and jump_count < max_jump and can_jump:
 		animator.play("jump")
+		if not is_on_floor(): jump_count += 1
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
 
