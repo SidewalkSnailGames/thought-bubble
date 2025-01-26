@@ -20,6 +20,7 @@ position = Vector2(-3, -391)
 scale = Vector2(0.6, 0.6)
 
 [node name="Phone" parent="." instance=ExtResource("4_iv8v3")]
+visible = false
 position = Vector2(-327, -527)
 
 [node name="Player" parent="." instance=ExtResource("2_fk7wt")]

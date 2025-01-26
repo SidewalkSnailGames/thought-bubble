@@ -5,6 +5,7 @@ const CHAT_VERT_SPACING = 58
 var first_msg = "ann-1"
 var last_msg = first_msg
 
+const END = "end"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +25,9 @@ func _process(delta: float) -> void:
 	use James' previously updated chat bubble size to determine where on the
 	y-axis we should put Ann's response next.
 	'''
+	# if no end choice/end, then prevent from pressing left/right
+	if get_next_msg_id(last_msg) == END: return
+	
 	var new_msg
 	var choice
 	if Input.is_action_just_pressed("ui_left"): # good choice
@@ -58,13 +62,13 @@ var paths = {
 	"james-5": ["ann-10", "ann-11"], # 5:30 works, don’t worry I have plenty of..... we’ll be okay!
 	"james-6": ["ann-12"], # Garlic bread sounds good right now. Want to come over at 5:30pm?
 	"james-7": ["ann-13", "ann-14"], # Okay, want to watch.....?
-	"ann-8": ["end"], # I would love that, see you at 5:30pm 😊
-	"ann-9": ["end"], # I don't know about the cuddling... but we can still hang out!
-	"ann-10": ["end"], # That sounds good to me! See you at 5:30pm!
-	"ann-11": ["end"], # I don't really want to read comic books, it's okay we can just hang out another day
-	"ann-12": ["end"], # Okay! I'll pick some up on my way over, 5:30pm works for me
-	"ann-13": ["end"], # Snails are my favorite! Especially Sidewalk Snails 😉
-	"ann-14": ["end"], # I hate slugs, we can just hang out another time. snails are way better
+	"ann-8": [END], # I would love that, see you at 5:30pm 😊
+	"ann-9": [END], # I don't know about the cuddling... but we can still hang out!
+	"ann-10": [END], # That sounds good to me! See you at 5:30pm!
+	"ann-11": [END], # I don't really want to read comic books, it's okay we can just hang out another day
+	"ann-12": [END], # Okay! I'll pick some up on my way over, 5:30pm works for me
+	"ann-13": [END], # Snails are my favorite! Especially Sidewalk Snails 😉
+	"ann-14": [END], # I hate slugs, we can just hang out another time. snails are way better
 }
 
 var msg_choices = {
@@ -73,7 +77,7 @@ var msg_choices = {
 	"james-3": ["make some food", "watch a TV show"],
 	"james-4": ["eat some snacks", "cuddle"],
 	"james-5": ["retro games", "comic books"],
-	"james-7": ["snail documentary", "slug documentary"]
+	"james-7": ["snail documentary", "slug documentary"],
 }
 
 func fill_in_msg(msg_id, choice):
@@ -108,8 +112,8 @@ func show_msg(msg_id):
 		
 
 func can_show_next_msg(msg_id):
-	return paths[msg_id].size() == 1
-	
+	return paths[msg_id].size() == 1 and not paths[msg_id][0] == END
+
 
 func get_next_msg_id(msg_id):
 	return paths[msg_id][0]
