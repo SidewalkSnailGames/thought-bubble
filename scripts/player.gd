@@ -21,7 +21,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and jump_count < max_jump and can_jump:
 		animator.play("jump")
 		velocity.y = JUMP_VELOCITY
-		jump_count =+ 1
+		jump_count += 1
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

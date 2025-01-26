@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://nxryqbpliqb1" path="res://scenes/player.tscn" id="2_fk7wt"]
 [ext_resource type="PackedScene" uid="uid://d3qi6tv234esb" path="res://scenes/phone.tscn" id="4_iv8v3"]
 [ext_resource type="Script" path="res://scripts/cameralimiter.gd" id="5_t7b54"]
-[ext_resource type="PackedScene" uid="uid://djgimllrvr6si" path="res://scenes/pause_menu.tscn" id="5_yfmlc"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="5_yfmlc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo4fq"]
 size = Vector2(700, 1871)
