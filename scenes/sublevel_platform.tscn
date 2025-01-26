@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh42nw20lbrra"]
+[gd_scene load_steps=3 format=3 uid="uid://bh42nw20lbrra"]
+
+[ext_resource type="Texture2D" uid="uid://7ydgfxwfr7po" path="res://assets/thought bubble platforms/Emotes1.png" id="1_p4d04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rr42x"]
 size = Vector2(115, 15)
 
-[node name="Platform" type="Node2D"]
+[node name="Platform" type="AnimatableBody2D"]
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1.5)
+scale = Vector2(7.25, 1.1875)
+texture = ExtResource("1_p4d04")
 
-[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rr42x")
 one_way_collision = true
