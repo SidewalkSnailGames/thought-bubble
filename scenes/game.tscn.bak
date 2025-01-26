@@ -4,11 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://be8ile0eybqw2" path="res://scenes/level_1.tscn" id="1_ry0ud"]
 [ext_resource type="PackedScene" uid="uid://nxryqbpliqb1" path="res://scenes/player.tscn" id="2_fk7wt"]
 [ext_resource type="PackedScene" uid="uid://d3qi6tv234esb" path="res://scenes/phone.tscn" id="4_iv8v3"]
-
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://scripts/cameralimiter.gd" id="5_t7b54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo4fq"]
 size = Vector2(700, 1469)
+=======
+>>>>>>> Stashed changes
 
 [node name="Game" type="Node2D"]
 position = Vector2(-665, -266)

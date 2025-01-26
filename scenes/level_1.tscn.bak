@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://be8ile0eybqw2"]
+[gd_scene load_steps=5 format=3 uid="uid://be8ile0eybqw2"]
 
 [ext_resource type="PackedScene" uid="uid://do00o5r6ncrpw" path="res://scenes/platform.tscn" id="1_5xg23"]
 [ext_resource type="PackedScene" uid="uid://cawksimn5vqt2" path="res://scenes/messageplatform.tscn" id="2_eqcfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jdd8"]
+size = Vector2(920, 141)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk0o2"]
+size = Vector2(724, 100)
 
 [node name="Level1" type="Node2D"]
 
@@ -39,6 +45,13 @@ offset_bottom = 501.0
 msgText = "Yeah sure! 😊 lets meet at Bubbles Coffee at 4pm"
 metadata/_edit_use_anchors_ = true
 
+[node name="Label" parent="messageplatform2/MarginContainer" index="0"]
+text = "Yeah sure! 😊 lets meet at Bubbles Coffee at 4pm"
+
+[node name="CollisionShape2D" parent="messageplatform2/StaticBody2D" index="0"]
+position = Vector2(460, 70.5)
+shape = SubResource("RectangleShape2D_8jdd8")
+
 [node name="messageplatform3" parent="." instance=ExtResource("2_eqcfc")]
 offset_left = 14.0
 offset_top = 199.0
@@ -68,8 +81,12 @@ offset_left = 1096.0
 offset_top = -411.0
 offset_right = 1303.0
 offset_bottom = -311.0
+<<<<<<< Updated upstream
+msgText = "Yeah?"
+=======
 msgText = "Yeah? "
 metadata/_edit_use_anchors_ = true
+>>>>>>> Stashed changes
 
 [node name="messageplatform7" parent="." instance=ExtResource("2_eqcfc")]
 offset_left = 12.0
@@ -86,6 +103,13 @@ offset_right = 727.0
 offset_bottom = -623.0
 msgText = "Everything okay? I’m alright"
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" parent="messageplatform8/MarginContainer" index="0"]
+text = "Everything okay? I’m alright"
+
+[node name="CollisionShape2D" parent="messageplatform8/StaticBody2D" index="0"]
+position = Vector2(362, 50)
+shape = SubResource("RectangleShape2D_pk0o2")
 
 [node name="messageplatform9" parent="." instance=ExtResource("2_eqcfc")]
 offset_left = 620.0
@@ -109,4 +133,10 @@ offset_top = -1312.0
 offset_right = 773.0
 offset_bottom = -1217.0
 msgText = "Hey Ann! How are you doing?"
+<<<<<<< Updated upstream
+
+[editable path="messageplatform2"]
+[editable path="messageplatform8"]
+=======
 metadata/_edit_use_anchors_ = true
+>>>>>>> Stashed changes

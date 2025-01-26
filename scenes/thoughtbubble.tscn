@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://vqg3dhnad7e2"]
+
+[ext_resource type="Texture2D" uid="uid://bw01n3xajgbxy" path="res://assets/bg/speech balloon new v.png" id="1_jiuvp"]
+
+[node name="thoughtbubble" type="Node2D"]
+
+[node name="SpeechBalloonNewV" type="Sprite2D" parent="."]
+position = Vector2(579, 368)
+scale = Vector2(9.22798, 9.22798)
+texture = ExtResource("1_jiuvp")
+region_enabled = true
+region_rect = Rect2(312.257, 125.317, 118.743, 53.2862)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SpeechBalloonNewV"]
+position = Vector2(62.744, 39.8787)
+scale = Vector2(0.108366, 0.108366)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpeechBalloonNewV/StaticBody2D"]
+position = Vector2(-579, -367)
+scale = Vector2(9.22798, 9.22798)
+polygon = PackedVector2Array(43.3464, 22.9736, 57.0006, 11.4868, 57.3257, -0.325104, 54.3998, -6.3936, 50.8237, -9.31949, 47.5727, -11.4868, 44.105, -12.3537, 39.662, -12.3537, 36.1943, -11.8119, 32.4015, -10.8366, 28.717, -8.66929, 26.8748, -6.17687, 25.8995, -7.47726, 25.2493, -10.7282, 22.4318, -12.5705, 19.6143, -14.3043, 14.3043, -14.7378, 10.7282, -13.2207, 7.15216, -9.75295, 7.15215, -17.2302, 2.92587, -22.4318, -2.70917, -25.5744, -10.945, -25.3577, -19.6143, -17.772, -20.5896, -9.10275, -29.0421, -15.1713, -40.2038, -16.58, -49.1982, -11.7035, -55.8085, -2.70914, -56.242, 8.66929, -47.5727, 18.4222, -39.5536, 22.9736)

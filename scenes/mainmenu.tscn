@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://541w5qqccqkh"]
+
+[ext_resource type="PackedScene" uid="uid://wyksy6jberae" path="res://scenes/background.tscn" id="1_hypwy"]
+[ext_resource type="PackedScene" uid="uid://d3qi6tv234esb" path="res://scenes/phone.tscn" id="2_ra7vm"]
+
+[node name="mainmenu" type="Node2D"]
+
+[node name="background" parent="." instance=ExtResource("1_hypwy")]
+position = Vector2(1411, 239)
+scale = Vector2(0.336543, 0.336543)
+
+[node name="Phone" parent="." instance=ExtResource("2_ra7vm")]
+position = Vector2(157, 103)
+scale = Vector2(0.309317, 0.311076)
