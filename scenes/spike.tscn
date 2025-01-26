@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj1oeghcgw6ck"]
+
+[ext_resource type="Script" path="res://scenes/spikes.gd" id="1_y04v0"]
+[ext_resource type="Texture2D" uid="uid://bjrbm7iu6us3n" path="res://assets/Spikesssss.png" id="2_5tduk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shiv2"]
+size = Vector2(161, 12)
+
+[node name="Spike" type="Node2D"]
+
+[node name="StaticBody2D" type="Area2D" parent="."]
+script = ExtResource("1_y04v0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8.5, 1)
+shape = SubResource("RectangleShape2D_shiv2")
+debug_color = Color(0.635294, 0, 0, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_5tduk")
+region_enabled = true
+region_rect = Rect2(111.336, 34.7659, 114.758, 13.2341)
+
+[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(16, 0)
+texture = ExtResource("2_5tduk")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(111.336, 34.7659, 114.758, 13.2341)
+
+[node name="Sprite2D3" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(32, 0)
+texture = ExtResource("2_5tduk")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(111.336, 34.7659, 114.758, 13.2341)
+
+[node name="Sprite2D4" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-16, 0)
+texture = ExtResource("2_5tduk")
+region_enabled = true
+region_rect = Rect2(111.336, 34.7659, 114.758, 13.2341)
