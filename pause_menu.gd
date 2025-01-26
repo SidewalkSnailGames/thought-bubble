@@ -25,7 +25,12 @@ func _on_options_pressed() -> void:
 	print("OPTIONS MENU!")
 
 func _on_quit_pressed() -> void:
+<<<<<<< Updated upstream
 	get_tree().change_scene_to_file("res://scenes/mainmenu.tscn")
+=======
+	get_tree().quit()
+	print("MAIN MENU!")
+>>>>>>> Stashed changes
 
 func _process(delta):
 	testEsc()
