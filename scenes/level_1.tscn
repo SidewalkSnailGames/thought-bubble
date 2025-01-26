@@ -1,49 +1,49 @@
 [gd_scene load_steps=18 format=3 uid="uid://be8ile0eybqw2"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_4bten"]
-[ext_resource type="PackedScene" uid="uid://yfj8tbgx4x4t" path="res://scenes/messageplatformreverse.tscn" id="2_e0q2o"]
+[ext_resource type="PackedScene" path="res://scenes/messageplatformreverse.tscn" id="2_e0q2o"]
 [ext_resource type="PackedScene" uid="uid://v5h7jujyjrfn" path="res://scenes/messageplatform.tscn" id="2_eqcfc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f2vc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4xyj"]
 size = Vector2(730, 221)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2fk3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yapr"]
 size = Vector2(730, 293)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b67co"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ni32"]
 size = Vector2(730, 221)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rncw8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_buv18"]
 size = Vector2(730, 293)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5cmr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dh2fy"]
 size = Vector2(730, 293)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqhqo"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqbp6"]
 size = Vector2(730, 365)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfkjo"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0aods"]
 size = Vector2(730, 221)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik7c4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec15u"]
 size = Vector2(730, 221)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yow67"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrelv"]
 size = Vector2(730, 293)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d47ac"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsq56"]
 size = Vector2(730, 293)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjbq8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4wp5"]
 size = Vector2(730, 365)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pus3n"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_705lt"]
 size = Vector2(730, 293)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1mgi"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_doidj"]
 size = Vector2(730, 293)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_durkw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1n8yc"]
 size = Vector2(730, 293)
 
 [node name="Level1" type="Node2D"]
@@ -70,7 +70,7 @@ text = "Hey James! What are you up to? 😊"
 [node name="CollisionShape2D" parent="ann-1/StaticBody2D" index="0"]
 visible = false
 position = Vector2(365, 110.5)
-shape = SubResource("RectangleShape2D_7f2vc")
+shape = SubResource("RectangleShape2D_a4xyj")
 
 [node name="james-1" parent="." instance=ExtResource("2_e0q2o")]
 offset_left = 239.0
@@ -101,7 +101,7 @@ text = "Ooooh I love retro games, can we play Chrono Trigger? :D"
 [node name="CollisionShape2D" parent="ann-2/StaticBody2D" index="0"]
 visible = false
 position = Vector2(365, 146.5)
-shape = SubResource("RectangleShape2D_s2fk3")
+shape = SubResource("RectangleShape2D_3yapr")
 
 [node name="ann-3" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -125,7 +125,7 @@ text = "Oh, okay a movie is alright…"
 [node name="CollisionShape2D" parent="ann-3/StaticBody2D" index="0"]
 visible = false
 position = Vector2(365, 110.5)
-shape = SubResource("RectangleShape2D_b67co")
+shape = SubResource("RectangleShape2D_0ni32")
 
 [node name="james-2" parent="." instance=ExtResource("2_e0q2o")]
 offset_left = 241.0
@@ -163,7 +163,7 @@ text = "Mine too, the ost is Incredible! How about I head over around 5:30pm?"
 [node name="CollisionShape2D" parent="ann-4/StaticBody2D" index="0"]
 visible = false
 position = Vector2(365, 146.5)
-shape = SubResource("RectangleShape2D_rncw8")
+shape = SubResource("RectangleShape2D_buv18")
 
 [node name="ann-5" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -187,7 +187,7 @@ text = "Alright…I guess we can play something else. How is 5:30pm"
 [node name="CollisionShape2D" parent="ann-5/StaticBody2D" index="0"]
 visible = false
 position = Vector2(365, 146.5)
-shape = SubResource("RectangleShape2D_o5cmr")
+shape = SubResource("RectangleShape2D_dh2fy")
 
 [node name="ann-6" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -211,7 +211,7 @@ text = "Yes! Let’s make some pasta! Want me to pick up some bread to make garl
 [node name="CollisionShape2D" parent="ann-6/StaticBody2D" index="0"]
 visible = false
 position = Vector2(365, 182.5)
-shape = SubResource("RectangleShape2D_cqhqo")
+shape = SubResource("RectangleShape2D_dqbp6")
 
 [node name="ann-7" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -235,7 +235,7 @@ text = "I guess a TV show could work…?"
 [node name="CollisionShape2D" parent="ann-7/StaticBody2D" index="0"]
 visible = false
 position = Vector2(365, 110.5)
-shape = SubResource("RectangleShape2D_sfkjo")
+shape = SubResource("RectangleShape2D_0aods")
 
 [node name="james-4" parent="." instance=ExtResource("2_e0q2o")]
 offset_left = 239.0
@@ -286,7 +286,7 @@ text = "I would love that, see you at 5:30pm 😊"
 
 [node name="CollisionShape2D" parent="ann-8/StaticBody2D" index="0"]
 position = Vector2(365, 110.5)
-shape = SubResource("RectangleShape2D_ik7c4")
+shape = SubResource("RectangleShape2D_ec15u")
 
 [node name="ann-9" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -310,7 +310,7 @@ text = "I don't know about the cuddling... but we can still hang out!"
 
 [node name="CollisionShape2D" parent="ann-9/StaticBody2D" index="0"]
 position = Vector2(365, 146.5)
-shape = SubResource("RectangleShape2D_yow67")
+shape = SubResource("RectangleShape2D_jrelv")
 
 [node name="ann-10" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -334,7 +334,7 @@ text = "That sounds good to me! See you at 5:30pm!"
 
 [node name="CollisionShape2D" parent="ann-10/StaticBody2D" index="0"]
 position = Vector2(365, 146.5)
-shape = SubResource("RectangleShape2D_d47ac")
+shape = SubResource("RectangleShape2D_vsq56")
 
 [node name="ann-11" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -358,7 +358,7 @@ text = "I don't really want to read comic books, it's okay we can just hang out 
 
 [node name="CollisionShape2D" parent="ann-11/StaticBody2D" index="0"]
 position = Vector2(365, 182.5)
-shape = SubResource("RectangleShape2D_tjbq8")
+shape = SubResource("RectangleShape2D_b4wp5")
 
 [node name="ann-12" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -382,7 +382,7 @@ text = "Okay! I'll pick some up on my way over, 5:30pm works for me"
 
 [node name="CollisionShape2D" parent="ann-12/StaticBody2D" index="0"]
 position = Vector2(365, 146.5)
-shape = SubResource("RectangleShape2D_pus3n")
+shape = SubResource("RectangleShape2D_705lt")
 
 [node name="ann-13" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -406,7 +406,7 @@ text = "Snails are my favorite! Especially Sidewalk Snails 😉"
 
 [node name="CollisionShape2D" parent="ann-13/StaticBody2D" index="0"]
 position = Vector2(365, 146.5)
-shape = SubResource("RectangleShape2D_m1mgi")
+shape = SubResource("RectangleShape2D_doidj")
 
 [node name="ann-14" parent="." instance=ExtResource("2_eqcfc")]
 custom_minimum_size = Vector2(34.07, 0)
@@ -430,7 +430,7 @@ text = "I hate slugs, we can just hang out another time. snails are way better"
 
 [node name="CollisionShape2D" parent="ann-14/StaticBody2D" index="0"]
 position = Vector2(365, 146.5)
-shape = SubResource("RectangleShape2D_durkw")
+shape = SubResource("RectangleShape2D_1n8yc")
 
 [editable path="ann-1"]
 [editable path="ann-2"]

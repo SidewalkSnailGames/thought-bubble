@@ -25,6 +25,7 @@ func _on_options_pressed() -> void:
 	print("OPTIONS MENU!")
 
 func _on_quit_pressed() -> void:
+	get_tree().quit()
 	print("MAIN MENU!")
 
 func _process(delta):
