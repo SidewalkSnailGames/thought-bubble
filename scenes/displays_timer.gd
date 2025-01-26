@@ -1,0 +1,27 @@
+extends Label
+
+@onready var timer = $".."
+@onready var gameover = $"."
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	timer.connect("timeout", _on_timer_timeout)
+	
+func _on_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://scenes/UI/gameover.tscn")
+	
+func toggle_visibility():
+	visible = not visible
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	text = _format_seconds(timer.get_time_left(), true)
+	
+func _format_seconds(time : float, use_milliseconds : bool) -> String:
+	var minutes := time / 60
+	var seconds := fmod(time, 60)
+	var milliseconds := fmod(time, 1) * 100
+
+	return "%02d:%02d:%02d" % [minutes, seconds, milliseconds]

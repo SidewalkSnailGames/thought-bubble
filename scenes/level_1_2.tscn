@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://cw1bfywukx46x"]
+[gd_scene load_steps=20 format=3 uid="uid://cw1bfywukx46x"]
 
 [ext_resource type="PackedScene" path="res://scenes/bubble_piece.tscn" id="1_uf60q"]
 [ext_resource type="PackedScene" path="res://scenes/sublevel_platform.tscn" id="2_hqcdn"]
 [ext_resource type="PackedScene" uid="uid://bctihso0vxcwr" path="res://scenes/spike.tscn" id="3_5ynh2"]
 [ext_resource type="PackedScene" uid="uid://nxryqbpliqb1" path="res://scenes/player.tscn" id="4_7d3b8"]
+[ext_resource type="Script" path="res://scenes/displays_timer.gd" id="5_0ji70"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2jx2"]
 size = Vector2(1643, 20)
@@ -256,3 +257,17 @@ respawn_point = NodePath("../../Respawn Point")
 
 [node name="Player" parent="Spikes" instance=ExtResource("4_7d3b8")]
 position = Vector2(-45, -106)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 25.0
+autostart = true
+
+[node name="Displays Timer" type="Label" parent="Timer"]
+offset_left = 494.0
+offset_top = 23.0
+offset_right = 534.0
+offset_bottom = 46.0
+script = ExtResource("5_0ji70")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="Timer" to="Timer/Displays Timer" method="_on_timer_timeout"]
