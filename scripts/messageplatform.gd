@@ -15,6 +15,7 @@ var color_map = {
 }
 
 @onready var msg = $msgBox
+@onready var msgTriangle = $Control/Messagetrianglething
 @onready var msgLabel = $MarginContainer/Label
 
 @export var msgText : String = "Hello! This is a message!"
@@ -33,7 +34,7 @@ func _ready():
 	
 	#Box color
 	msg.modulate = color_map[msgType][0]
-	
+	msgTriangle.modulate = color_map[msgType][0]
 
 func _process(delta):
 	if Engine.is_editor_hint():
