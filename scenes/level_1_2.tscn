@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://o7jj2b7smeme"]
+[gd_scene load_steps=19 format=3 uid="uid://cw1bfywukx46x"]
 
-[ext_resource type="PackedScene" uid="uid://b8x10k3ch0skk" path="res://scenes/bubble_piece.tscn" id="1_uf60q"]
-[ext_resource type="PackedScene" uid="uid://bh42nw20lbrra" path="res://scenes/sublevel_platform.tscn" id="2_hqcdn"]
-[ext_resource type="PackedScene" uid="uid://bj1oeghcgw6ck" path="res://scenes/spike.tscn" id="3_5ynh2"]
+[ext_resource type="PackedScene" path="res://scenes/bubble_piece.tscn" id="1_uf60q"]
+[ext_resource type="PackedScene" path="res://scenes/sublevel_platform.tscn" id="2_hqcdn"]
+[ext_resource type="PackedScene" uid="uid://bctihso0vxcwr" path="res://scenes/spike.tscn" id="3_5ynh2"]
+[ext_resource type="PackedScene" uid="uid://nxryqbpliqb1" path="res://scenes/player.tscn" id="4_7d3b8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2jx2"]
 size = Vector2(1643, 20)
@@ -179,6 +180,9 @@ position = Vector2(1573, 37)
 [node name="Bubble Piece2" parent="Boundaries" instance=ExtResource("1_uf60q")]
 position = Vector2(1491, 37)
 
+[node name="Respawn Point" type="Node2D" parent="."]
+position = Vector2(39, 279)
+
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("2_hqcdn")]
@@ -211,31 +215,44 @@ autoplay = "Plat3_move"
 [node name="Spikes" type="Node2D" parent="."]
 position = Vector2(82, 390)
 
-[node name="Spike 1" parent="Spikes" instance=ExtResource("3_5ynh2")]
+[node name="Spike 1" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_5ynh2")]
+respawn_point = NodePath("../../Respawn Point")
 
-[node name="Spike 2" parent="Spikes" instance=ExtResource("3_5ynh2")]
+[node name="Spike 2" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_5ynh2")]
 position = Vector2(161, 0)
+respawn_point = NodePath("../../Respawn Point")
 
-[node name="Spike 3" parent="Spikes" instance=ExtResource("3_5ynh2")]
+[node name="Spike 3" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_5ynh2")]
 position = Vector2(322, 0)
+respawn_point = NodePath("../../Respawn Point")
 
-[node name="Spike 4" parent="Spikes" instance=ExtResource("3_5ynh2")]
+[node name="Spike 4" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_5ynh2")]
 position = Vector2(483, 0)
+respawn_point = NodePath("../../Respawn Point")
 
-[node name="Spike 5" parent="Spikes" instance=ExtResource("3_5ynh2")]
+[node name="Spike 5" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_5ynh2")]
 position = Vector2(644, 0)
+respawn_point = NodePath("../../Respawn Point")
 
-[node name="Spike 6" parent="Spikes" instance=ExtResource("3_5ynh2")]
+[node name="Spike 6" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_5ynh2")]
 position = Vector2(805, 0)
+respawn_point = NodePath("../../Respawn Point")
 
-[node name="Spike 7" parent="Spikes" instance=ExtResource("3_5ynh2")]
+[node name="Spike 7" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_5ynh2")]
 position = Vector2(966, 0)
+respawn_point = NodePath("../../Respawn Point")
 
-[node name="Spike 8" parent="Spikes" instance=ExtResource("3_5ynh2")]
+[node name="Spike 8" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_5ynh2")]
 position = Vector2(1127, 0)
+respawn_point = NodePath("../../Respawn Point")
 
-[node name="Spike 9" parent="Spikes" instance=ExtResource("3_5ynh2")]
+[node name="Spike 9" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_5ynh2")]
 position = Vector2(1288, 0)
+respawn_point = NodePath("../../Respawn Point")
 
-[node name="Spike 10" parent="Spikes" instance=ExtResource("3_5ynh2")]
+[node name="Spike 10" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_5ynh2")]
 position = Vector2(1449, 0)
+respawn_point = NodePath("../../Respawn Point")
+
+[node name="Player" parent="Spikes" instance=ExtResource("4_7d3b8")]
+position = Vector2(-45, -106)

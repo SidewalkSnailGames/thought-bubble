@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhubybh0dtipc"]
+[gd_scene load_steps=8 format=3 uid="uid://dhubybh0dtipc"]
 
 [ext_resource type="PackedScene" path="res://scenes/bubble_piece.tscn" id="1_7nsye"]
 [ext_resource type="PackedScene" path="res://scenes/sublevel_platform.tscn" id="1_sq0mn"]
 [ext_resource type="Script" path="res://scenes/label.gd" id="1_w725x"]
-[ext_resource type="PackedScene" path="res://scenes/spike.tscn" id="5_hp04q"]
+[ext_resource type="PackedScene" uid="uid://nxryqbpliqb1" path="res://scenes/player.tscn" id="5_3i3xw"]
+[ext_resource type="PackedScene" uid="uid://bctihso0vxcwr" path="res://scenes/spike.tscn" id="5_hp04q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snvrm"]
 size = Vector2(701, 20)
@@ -51,27 +52,34 @@ position = Vector2(32, 229)
 
 [node name="Spikes" type="Node2D" parent="."]
 
-[node name="Spike" parent="Spikes" instance=ExtResource("5_hp04q")]
+[node name="Spike" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_hp04q")]
 position = Vector2(149, 264)
+respawn_point = NodePath("../../Respawn Point")
 
-[node name="Spike2" parent="Spikes" instance=ExtResource("5_hp04q")]
+[node name="Spike2" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_hp04q")]
 position = Vector2(310, 264)
+respawn_point = NodePath("../../Respawn Point")
 
-[node name="Spike3" parent="Spikes" instance=ExtResource("5_hp04q")]
+[node name="Spike3" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_hp04q")]
 position = Vector2(471, 264)
+respawn_point = NodePath("../../Respawn Point")
 
-[node name="Spike4" parent="Spikes" instance=ExtResource("5_hp04q")]
+[node name="Spike4" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_hp04q")]
 position = Vector2(631, 264)
+respawn_point = NodePath("../../Respawn Point")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 15.0
 autostart = true
 
 [node name="Displays Timer" type="Label" parent="."]
-offset_left = 482.0
-offset_top = 154.0
-offset_right = 573.0
-offset_bottom = 177.0
+offset_left = 305.0
+offset_top = -39.0
+offset_right = 396.0
+offset_bottom = -16.0
 script = ExtResource("1_w725x")
+
+[node name="Player" parent="." instance=ExtResource("5_3i3xw")]
+position = Vector2(30, 238)
 
 [connection signal="timeout" from="Timer" to="Displays Timer" method="_on_timer_timeout"]
