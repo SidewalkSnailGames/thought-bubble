@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://nxryqbpliqb1"]
+[gd_scene load_steps=4 format=3 uid="uid://nxryqbpliqb1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_rbwca"]
 [ext_resource type="Texture2D" uid="uid://b0epf57wyq4e3" path="res://assets/stickman.png" id="2_gtt10"]
-[ext_resource type="PackedScene" uid="uid://wyksy6jberae" path="res://scenes/background.tscn" id="3_keggp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ujmxx"]
 radius = 12.0
@@ -20,11 +19,3 @@ texture = ExtResource("2_gtt10")
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_ujmxx")
 debug_color = Color(0, 0.6, 0.709804, 0.784314)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
-
-[node name="background" parent="Camera2D" instance=ExtResource("3_keggp")]
-visible = false
-z_index = -1
-position = Vector2(894.464, -577.147)

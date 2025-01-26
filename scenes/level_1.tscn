@@ -43,9 +43,6 @@ offset_right = 1476.0
 offset_bottom = 501.0
 msgText = "Yeah sure! 😊 lets meet at Bubbles Coffee at 4pm"
 
-[node name="msgBox" parent="messageplatform2" index="0"]
-modulate = Color(0.223529, 0.631373, 0.976471, 1)
-
 [node name="Label" parent="messageplatform2/MarginContainer" index="0"]
 text = "Yeah sure! 😊 lets meet at Bubbles Coffee at 4pm"
 
@@ -94,9 +91,6 @@ offset_top = -718.0
 offset_right = 727.0
 offset_bottom = -623.0
 msgText = "Everything okay? I’m alright"
-
-[node name="msgBox" parent="messageplatform8" index="0"]
-modulate = Color(0.223529, 0.631373, 0.976471, 1)
 
 [node name="Label" parent="messageplatform8/MarginContainer" index="0"]
 text = "Everything okay? I’m alright"

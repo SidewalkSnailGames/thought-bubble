@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn5c81qsp558f"]
+[gd_scene load_steps=7 format=3 uid="uid://dn5c81qsp558f"]
 
 [ext_resource type="PackedScene" uid="uid://wyksy6jberae" path="res://scenes/background.tscn" id="1_oxexx"]
 [ext_resource type="PackedScene" uid="uid://be8ile0eybqw2" path="res://scenes/level_1.tscn" id="1_ry0ud"]
 [ext_resource type="PackedScene" uid="uid://nxryqbpliqb1" path="res://scenes/player.tscn" id="2_fk7wt"]
 [ext_resource type="PackedScene" uid="uid://d3qi6tv234esb" path="res://scenes/phone.tscn" id="4_iv8v3"]
+[ext_resource type="Script" path="res://scripts/cameralimiter.gd" id="5_t7b54"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xo4fq"]
+size = Vector2(700, 1469)
 
 [node name="Game" type="Node2D"]
 position = Vector2(-665, -266)
@@ -20,6 +24,15 @@ scale = Vector2(0.6, 0.6)
 [node name="Node2D" parent="." instance=ExtResource("2_fk7wt")]
 position = Vector2(271, -559)
 
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="background" parent="Node2D/Camera2D" instance=ExtResource("1_oxexx")]
+visible = false
+z_index = -1
+position = Vector2(894.464, -577.147)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
@@ -30,3 +43,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Phone" parent="CanvasLayer/Control" instance=ExtResource("4_iv8v3")]
+position = Vector2(247, 178)
+
+[node name="PhoneLimit" type="Area2D" parent="."]
+script = ExtResource("5_t7b54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PhoneLimit"]
+position = Vector2(286, 199.5)
+shape = SubResource("RectangleShape2D_xo4fq")
