@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -650.0
 
 var can_jump = true
 @onready var animator = $AnimatedSprite2D
+@onready var audioplayer = $Jumpsfx
 var jump_count = 0
 var max_jump = 2
 
@@ -20,6 +21,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("jump") and jump_count < max_jump and can_jump:
 		animator.play("jump")
+		audioplayer.play()
 		if not is_on_floor(): jump_count += 1
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
