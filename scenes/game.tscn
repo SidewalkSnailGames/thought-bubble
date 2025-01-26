@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dn5c81qsp558f"]
 
-[ext_resource type="PackedScene" path="res://scenes/background.tscn" id="1_oxexx"]
+[ext_resource type="PackedScene" uid="uid://wyksy6jberae" path="res://scenes/background.tscn" id="1_oxexx"]
 [ext_resource type="PackedScene" uid="uid://be8ile0eybqw2" path="res://scenes/level_1.tscn" id="1_ry0ud"]
 [ext_resource type="PackedScene" uid="uid://nxryqbpliqb1" path="res://scenes/player.tscn" id="2_fk7wt"]
-[ext_resource type="PackedScene" path="res://scenes/phone.tscn" id="4_iv8v3"]
+[ext_resource type="PackedScene" uid="uid://d3qi6tv234esb" path="res://scenes/phone.tscn" id="4_iv8v3"]
 
 [node name="Game" type="Node2D"]
 position = Vector2(-665, -266)
@@ -18,4 +18,15 @@ position = Vector2(2, 297)
 scale = Vector2(0.6, 0.6)
 
 [node name="Node2D" parent="." instance=ExtResource("2_fk7wt")]
-position = Vector2(247, 178)
+position = Vector2(271, -559)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Phone" parent="CanvasLayer/Control" instance=ExtResource("4_iv8v3")]

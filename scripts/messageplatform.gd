@@ -20,7 +20,11 @@ var color_map = {
 @export var msgText : String = "Hello! This is a message!"
 @export var msgType : Type
 
-func _process(delta):
+var collision_shape_2d: CollisionShape2D
+
+var flag = 1
+
+func _ready():
 	#Text label
 	msgLabel.text = msgText
 	
@@ -29,16 +33,28 @@ func _process(delta):
 	
 	#Box color
 	msg.modulate = color_map[msgType][0]
+	
 
-func _physics_process(delta):
+func _process(delta):
 	if Engine.is_editor_hint():
 		_size_collision_shape()
+	else:
+		if flag == 1:
+			_size_collision_shape()
+			flag = 2
+
+
+func _physics_process(delta):
+	pass
+	#if Engine.is_editor_hint():
 	
-func _size_collision_shape():
-	var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
 	
-	collision_shape_2d.shape.size.x = size.x
-	collision_shape_2d.shape.size.y = size.y
+func _size_collision_shape():	
+	collision_shape_2d = $StaticBody2D/CollisionShape2D
+	collision_shape_2d.shape = RectangleShape2D.new()
 	
-	collision_shape_2d.position.x = size.x / 2
-	collision_shape_2d.position.y = size.y / 2
+	collision_shape_2d.shape.size.x = $MarginContainer.size.x
+	collision_shape_2d.shape.size.y = $MarginContainer.size.y
+	#
+	collision_shape_2d.position.x = $MarginContainer.size.x / 2
+	collision_shape_2d.position.y = $MarginContainer.size.y / 2
