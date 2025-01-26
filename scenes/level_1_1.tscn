@@ -68,10 +68,10 @@ wait_time = 15.0
 autostart = true
 
 [node name="Displays Timer" type="Label" parent="."]
-offset_left = 471.0
-offset_top = 173.0
-offset_right = 562.0
-offset_bottom = 196.0
+offset_left = 298.0
+offset_top = -38.0
+offset_right = 389.0
+offset_bottom = -15.0
 script = ExtResource("1_w725x")
 
 [connection signal="timeout" from="Timer" to="Displays Timer" method="_on_timer_timeout"]
