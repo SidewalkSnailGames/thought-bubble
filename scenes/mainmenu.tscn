@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://541w5qqccqkh"]
+[gd_scene load_steps=8 format=3 uid="uid://541w5qqccqkh"]
 
 [ext_resource type="PackedScene" uid="uid://wyksy6jberae" path="res://scenes/background.tscn" id="1_hypwy"]
 [ext_resource type="Script" path="res://mainmenu.gd" id="1_lnhkg"]
 [ext_resource type="PackedScene" uid="uid://d3qi6tv234esb" path="res://scenes/phone.tscn" id="2_ra7vm"]
-[ext_resource type="AudioStream" uid="uid://c8e76lc8ostb7" path="res://assets/bg/Music/Story of Maple.wav" id="3_fw8qb"]
+[ext_resource type="AudioStream" uid="uid://c4n6sdfm28yvv" path="res://assets/bg/Music/A Cop's Death_wav.wav" id="3_kxb1r"]
 [ext_resource type="Texture2D" uid="uid://u4ag0w7yx5rf" path="res://assets/thoughtbubblelogo.png" id="4_lcq4x"]
 [ext_resource type="Texture2D" uid="uid://btqooaavfhto6" path="res://assets/sidewalksnailgameslogo.PNG" id="6_1dxk4"]
+[ext_resource type="Texture2D" uid="uid://bssc6qbee57dg" path="res://assets/thought bubble platforms/Emotes2.png" id="7_ompbo"]
 
 [node name="mainmenu" type="Control"]
 layout_mode = 3
@@ -21,7 +22,7 @@ position = Vector2(157, 103)
 scale = Vector2(0.309317, 0.311076)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_fw8qb")
+stream = ExtResource("3_kxb1r")
 autoplay = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -50,6 +51,11 @@ texture = ExtResource("4_lcq4x")
 position = Vector2(1103, 49)
 scale = Vector2(0.0398428, 0.0398428)
 texture = ExtResource("6_1dxk4")
+
+[node name="Emotes2" type="Sprite2D" parent="."]
+position = Vector2(287, 330)
+scale = Vector2(2.3125, 2.3125)
+texture = ExtResource("7_ompbo")
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
