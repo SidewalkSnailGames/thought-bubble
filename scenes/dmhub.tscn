@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd5bt48o6fi2t"]
+
+[ext_resource type="PackedScene" uid="uid://wyksy6jberae" path="res://scenes/background.tscn" id="1_iehih"]
+[ext_resource type="PackedScene" uid="uid://d3qi6tv234esb" path="res://scenes/phone.tscn" id="2_q5xwu"]
+
+[node name="dmhub" type="Node2D"]
+position = Vector2(685, 358)
+scale = Vector2(0.7, 0.7)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ParallaxBackground" type="Parallax2D" parent="Camera2D"]
+z_index = -1
+scale = Vector2(1, 1)
+
+[node name="ParallaxLayer" type="Parallax2D" parent="Camera2D/ParallaxBackground"]
+scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(685, 358)
+follow_viewport = false
+
+[node name="background" parent="Camera2D/ParallaxBackground/ParallaxLayer" instance=ExtResource("1_iehih")]
+position = Vector2(-1441.67, -551.428)
+scale = Vector2(0.8, 0.8)
+
+[node name="Phone" parent="Camera2D" instance=ExtResource("2_q5xwu")]
+position = Vector2(-425.714, -415.714)
+scale = Vector2(0.6, 0.6)

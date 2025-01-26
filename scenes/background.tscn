@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://wyksy6jberae"]
+[gd_scene load_steps=8 format=3 uid="uid://wyksy6jberae"]
 
 [ext_resource type="Shader" path="res://scenes/background.gdshader" id="1_hvajg"]
 [ext_resource type="Texture2D" uid="uid://dld4l4t0tm8e2" path="res://assets/bg/Sky_Day_BlueSky_Equirect.png" id="2_6yeui"]
@@ -8,9 +8,22 @@
 shader = ExtResource("1_hvajg")
 shader_parameter/scroll_speed = null
 
-[node name="background" type="Node2D"]
+[sub_resource type="BoxMesh" id="BoxMesh_pme2c"]
 
-[node name="skybox" type="TextureRect" parent="."]
+[sub_resource type="CanvasTexture" id="CanvasTexture_6451x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47pm6"]
+
+[node name="background" type="Node2D"]
+texture_filter = 1
+position = Vector2(1414, 7)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(3, 0)
+autoscroll = Vector2(5, 0)
+ignore_camera_scroll = true
+
+[node name="skybox" type="TextureRect" parent="Parallax2D"]
 material = SubResource("ShaderMaterial_8w0go")
 anchors_preset = 8
 anchor_left = 0.5
@@ -24,19 +37,68 @@ offset_bottom = 1024.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_6yeui")
+metadata/_edit_use_anchors_ = true
 
-[node name="cityscape" type="TextureRect" parent="."]
+[node name="skybox2" type="TextureRect" parent="Parallax2D/skybox"]
 material = SubResource("ShaderMaterial_8w0go")
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1463.0
-offset_top = 166.0
-offset_right = 1474.0
-offset_bottom = 698.0
+offset_left = 2014.0
+offset_top = -1024.0
+offset_right = 6110.0
+offset_bottom = 1024.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_6yeui")
+metadata/_edit_use_anchors_ = true
+
+[node name="skybox3" type="TextureRect" parent="Parallax2D/skybox"]
+material = SubResource("ShaderMaterial_8w0go")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6142.0
+offset_top = -1025.0
+offset_right = -2046.0
+offset_bottom = 1023.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6yeui")
+metadata/_edit_use_anchors_ = true
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+repeat_size = Vector2(500, 0)
+autoscroll = Vector2(15, 0)
+follow_viewport = false
+ignore_camera_scroll = true
+
+[node name="City" type="Sprite2D" parent="Parallax2D2"]
+position = Vector2(-34, 434)
 texture = ExtResource("2_dkv73")
-stretch_mode = 1
+
+[node name="City" type="Sprite2D" parent="Parallax2D2/City"]
+position = Vector2(-3423, 0)
+texture = ExtResource("2_dkv73")
+
+[node name="City2" type="Sprite2D" parent="Parallax2D2/City"]
+position = Vector2(3432, -1)
+texture = ExtResource("2_dkv73")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+modulate = Color(0.141176, 0.109804, 0.109804, 1)
+position = Vector2(234.5, 886)
+scale = Vector2(10319, 462)
+mesh = SubResource("BoxMesh_pme2c")
+texture = SubResource("CanvasTexture_6451x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_47pm6")
