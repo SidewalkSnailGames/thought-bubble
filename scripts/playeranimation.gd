@@ -6,7 +6,7 @@ var falling = false
 
 func _process(delta: float) -> void:
 	if player.is_on_floor() && not falling:
-		if player.velocity.x != 0:
+		if player.velocity.x != 0:	
 			animator.play("run-loop")
 		else:
 			animator.play("idle-loop")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0o58vdl6wvfi"
-path="res://.godot/imported/falling-loop.png-86fe5a077bf1a84509921928b08abfb5.ctex"
+uid="uid://byoisecoi2qpn"
+path="res://.godot/imported/fall-loop.png-b4e493add23cd01348dc3ac9df1ae35f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://animations/falling-loop.png"
-dest_files=["res://.godot/imported/falling-loop.png-86fe5a077bf1a84509921928b08abfb5.ctex"]
+source_file="res://animations/fall-loop.png"
+dest_files=["res://.godot/imported/fall-loop.png-b4e493add23cd01348dc3ac9df1ae35f.ctex"]
 
 [params]
 
