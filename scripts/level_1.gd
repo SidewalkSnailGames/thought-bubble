@@ -2,13 +2,13 @@ extends Node2D
 
 const CHAT_VERT_SPACING = 58
 
-var first_msgs = ["ann-1", "james-1"]
-var first_msg = first_msgs[0]
+var first_msg = "ann-1"
 var last_msg = first_msg
-var has_next_msg = true
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# disable all children at first
 	for child in get_children():
 		child.set_enabled(false)
 		
@@ -54,17 +54,26 @@ var paths = {
 	"ann-5": ["james-5"], # Alright…I guess we can play something else. How is 5:30pm
 	"ann-6": ["james-6"], # Yes! Let’s make some pasta! Want me to pick up some bread to make garlic bread?
 	"ann-7": ["james-5"], # I guess a TV show could work…?
-	"james-4": [], # 5:30 Works for me 😊 would you want to..... as well?
-	"james-5": [], # 5:30 works, don’t worry I have plenty of..... we’ll be okay!
-	"james-6": [], # Garlic bread sounds good right now. Want to come over at 5:30pm?
-	"james-7": [], # Okay, want to watch…..?
+	"james-4": ["ann-8", "ann-9"], # 5:30 Works for me 😊 would you want to..... as well?
+	"james-5": ["ann-10", "ann-11"], # 5:30 works, don’t worry I have plenty of..... we’ll be okay!
+	"james-6": ["ann-12"], # Garlic bread sounds good right now. Want to come over at 5:30pm?
+	"james-7": ["ann-13", "ann-14"], # Okay, want to watch.....?
+	"ann-8": ["end"], # I would love that, see you at 5:30pm 😊
+	"ann-9": ["end"], # I don't know about the cuddling... but we can still hang out!
+	"ann-10": ["end"], # That sounds good to me! See you at 5:30pm!
+	"ann-11": ["end"], # I don't really want to read comic books, it's okay we can just hang out another day
+	"ann-12": ["end"], # Okay! I'll pick some up on my way over, 5:30pm works for me
+	"ann-13": ["end"], # Snails are my favorite! Especially Sidewalk Snails 😉
+	"ann-14": ["end"], # I hate slugs, we can just hang out another time. snails are way better
 }
 
 var msg_choices = {
 	"james-1": ["play games", "go to the movies"],
 	"james-2": ["favorite games", "least favorite games"],
 	"james-3": ["make some food", "watch a TV show"],
-	"james-4": [""]
+	"james-4": ["eat some snacks", "cuddle"],
+	"james-5": ["retro games", "comic books"],
+	"james-7": ["snail documentary", "slug documentary"]
 }
 
 func fill_in_msg(msg_id, choice):
@@ -109,6 +118,5 @@ func get_next_msg_id(msg_id):
 func _set_next_msg_pos(prev_msg, next_msg):
 	var new_position = Vector2()
 	new_position.x = next_msg.position.x
-	print("%s + %s = %s" % [prev_msg.position.y, prev_msg.size.y, prev_msg.position.y + prev_msg.size.y])
 	new_position.y = prev_msg.position.y + prev_msg.size.y + CHAT_VERT_SPACING
 	next_msg.set_deferred("position", new_position)
