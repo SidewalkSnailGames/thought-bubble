@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://be8ile0eybqw2"]
 
 [ext_resource type="Script" path="res://scripts/level_1.gd" id="1_4bten"]
-[ext_resource type="PackedScene" uid="uid://yfj8tbgx4x4t" path="res://scenes/messageplatformreverse.tscn" id="2_e0q2o"]
+[ext_resource type="PackedScene" path="res://scenes/messageplatformreverse.tscn" id="2_e0q2o"]
 [ext_resource type="PackedScene" uid="uid://v5h7jujyjrfn" path="res://scenes/messageplatform.tscn" id="2_eqcfc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7lj6"]
@@ -47,6 +47,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Hey James! What are you up to? 😊"
 
 [node name="CollisionShape2D" parent="ann-1/StaticBody2D" index="0"]
+visible = false
 position = Vector2(365, 110.5)
 shape = SubResource("RectangleShape2D_m7lj6")
 
@@ -77,6 +78,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Ooooh I love retro games, can we play Chrono Trigger? :D"
 
 [node name="CollisionShape2D" parent="ann-2/StaticBody2D" index="0"]
+visible = false
 position = Vector2(365, 146.5)
 shape = SubResource("RectangleShape2D_muo8d")
 
@@ -100,6 +102,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Oh, okay a movie is alright…"
 
 [node name="CollisionShape2D" parent="ann-3/StaticBody2D" index="0"]
+visible = false
 position = Vector2(365, 110.5)
 shape = SubResource("RectangleShape2D_qwsu4")
 
@@ -137,6 +140,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Mine too, the ost is Incredible! How about I head over around 5:30pm?"
 
 [node name="CollisionShape2D" parent="ann-4/StaticBody2D" index="0"]
+visible = false
 position = Vector2(365, 146.5)
 shape = SubResource("RectangleShape2D_sghvo")
 
@@ -160,6 +164,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Alright…I guess we can play something else. How is 5:30pm"
 
 [node name="CollisionShape2D" parent="ann-5/StaticBody2D" index="0"]
+visible = false
 position = Vector2(365, 146.5)
 shape = SubResource("RectangleShape2D_357jg")
 
@@ -183,6 +188,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Yes! Let’s make some pasta! Want me to pick up some bread to make garlic bread?"
 
 [node name="CollisionShape2D" parent="ann-6/StaticBody2D" index="0"]
+visible = false
 position = Vector2(365, 182.5)
 shape = SubResource("RectangleShape2D_gl1hr")
 
@@ -206,6 +212,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "I guess a TV show could work…?"
 
 [node name="CollisionShape2D" parent="ann-7/StaticBody2D" index="0"]
+visible = false
 position = Vector2(365, 110.5)
 shape = SubResource("RectangleShape2D_2os83")
 

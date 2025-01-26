@@ -39,3 +39,4 @@ func disable_jump():
 
 func enable_jump():
 	can_jump = true
+	

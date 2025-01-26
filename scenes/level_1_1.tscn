@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ngkr3aoygruo"]
+[gd_scene load_steps=9 format=3 uid="uid://dhubybh0dtipc"]
 
-[ext_resource type="PackedScene" uid="uid://b8x10k3ch0skk" path="res://scenes/bubble_piece.tscn" id="1_7nsye"]
+[ext_resource type="Texture2D" uid="uid://bjrbm7iu6us3n" path="res://assets/Spikesssss.png" id="1_0vu3u"]
+[ext_resource type="PackedScene" path="res://scenes/bubble_piece.tscn" id="1_7nsye"]
+[ext_resource type="Script" path="res://scenes/spikes.gd" id="1_kqt6w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snvrm"]
 size = Vector2(701, 20)
@@ -13,6 +15,9 @@ size = Vector2(115, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6jy5"]
 size = Vector2(216.5, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv53y"]
+size = Vector2(606, 15)
 
 [node name="Level 2" type="Node2D"]
 
@@ -29,20 +34,60 @@ shape = SubResource("RectangleShape2D_vm7s8")
 [node name="Platforms" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Platforms"]
-position = Vector2(190, 170)
+position = Vector2(137, 211)
 shape = SubResource("RectangleShape2D_ru8qx")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Platforms"]
-position = Vector2(351, 223)
+position = Vector2(295, 165)
 shape = SubResource("RectangleShape2D_ru8qx")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Platforms"]
-position = Vector2(359, 122)
+position = Vector2(425, 114)
 shape = SubResource("RectangleShape2D_ru8qx")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Platforms"]
 position = Vector2(588, 77)
 shape = SubResource("RectangleShape2D_d6jy5")
+
+[node name="Spikes" type="Area2D" parent="Platforms"]
+script = ExtResource("1_kqt6w")
+
+[node name="Spikesssss" type="Sprite2D" parent="Platforms/Spikes"]
+position = Vector2(215, 249)
+texture = ExtResource("1_0vu3u")
+
+[node name="Spikesssss2" type="Sprite2D" parent="Platforms/Spikes"]
+position = Vector2(184, 249)
+texture = ExtResource("1_0vu3u")
+
+[node name="Spikesssss3" type="Sprite2D" parent="Platforms/Spikes"]
+position = Vector2(359, 249)
+texture = ExtResource("1_0vu3u")
+
+[node name="Spikesssss4" type="Sprite2D" parent="Platforms/Spikes"]
+position = Vector2(481, 248)
+texture = ExtResource("1_0vu3u")
+
+[node name="Spikesssss5" type="Sprite2D" parent="Platforms/Spikes"]
+position = Vector2(333, 248)
+texture = ExtResource("1_0vu3u")
+
+[node name="Spikesssss6" type="Sprite2D" parent="Platforms/Spikes"]
+position = Vector2(514, 247)
+texture = ExtResource("1_0vu3u")
+
+[node name="Spikesssss7" type="Sprite2D" parent="Platforms/Spikes"]
+position = Vector2(494, 247)
+texture = ExtResource("1_0vu3u")
+
+[node name="Spikesssss8" type="Sprite2D" parent="Platforms/Spikes"]
+position = Vector2(204, 248)
+texture = ExtResource("1_0vu3u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Spikes"]
+position = Vector2(372, 265)
+shape = SubResource("RectangleShape2D_wv53y")
+debug_color = Color(0.967779, 0.144173, 0.279108, 0.42)
 
 [node name="Level Choices" type="Node2D" parent="."]
 
@@ -54,3 +99,8 @@ text = "Good"
 position = Vector2(630, -12)
 text = "Bad"
 moral = 1
+
+[node name="Respawn Point" type="Node2D" parent="."]
+position = Vector2(32, 229)
+
+[connection signal="body_entered" from="Platforms/Spikes" to="Platforms/Spikes" method="_on_body_entered"]

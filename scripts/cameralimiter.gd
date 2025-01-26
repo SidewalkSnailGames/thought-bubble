@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var camera = $"../Node2D/Camera2D"
+@onready var camera = $"../Player/Camera2D"
 
 func _ready():
 	var area_size = $CollisionShape2D.shape.extents * 2
