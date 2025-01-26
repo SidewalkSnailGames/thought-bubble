@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c80lprmrn6m7u"
+path="res://.godot/imported/Bossy Intro.wav-4e5a1b71589b26a0b298a3017fe5b82f.sample"
+
+[deps]
+
+source_file="res://assets/bg/Music/Bossy Intro.wav"
+dest_files=["res://.godot/imported/Bossy Intro.wav-4e5a1b71589b26a0b298a3017fe5b82f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,13 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://b430ni5flx0i4"]
+[gd_scene load_steps=6 format=3 uid="uid://b430ni5flx0i4"]
 
-[ext_resource type="PackedScene" uid="uid://wyksy6jberae" path="res://scenes/background.tscn" id="1_3dhva"]
 [ext_resource type="PackedScene" uid="uid://vqg3dhnad7e2" path="res://scenes/thoughtbubble.tscn" id="1_5uqsx"]
 [ext_resource type="PackedScene" uid="uid://nxryqbpliqb1" path="res://scenes/player.tscn" id="2_oweei"]
 [ext_resource type="PackedScene" uid="uid://b5k7cwxo8ssuc" path="res://scenes/greenthoughtbubble.tscn" id="3_i25j5"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_3cry8"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_et6cd"]
+
 [node name="level 3" type="Node2D"]
 
-[node name="background" parent="." instance=ExtResource("1_3dhva")]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.141176, 0.109804, 0.109804, 1)
+position = Vector2(248, 1234.5)
+scale = Vector2(10319, 2923)
+mesh = SubResource("BoxMesh_3cry8")
+texture = SubResource("CanvasTexture_et6cd")
 
 [node name="thoughtbubble" parent="." instance=ExtResource("1_5uqsx")]
 position = Vector2(263, 137)
