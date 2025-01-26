@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dn5c81qsp558f"]
+[gd_scene load_steps=8 format=3 uid="uid://dn5c81qsp558f"]
 
 [ext_resource type="PackedScene" uid="uid://wyksy6jberae" path="res://scenes/background.tscn" id="1_oxexx"]
 [ext_resource type="PackedScene" uid="uid://be8ile0eybqw2" path="res://scenes/level_1.tscn" id="1_ry0ud"]
 [ext_resource type="PackedScene" uid="uid://nxryqbpliqb1" path="res://scenes/player.tscn" id="2_fk7wt"]
 [ext_resource type="PackedScene" uid="uid://d3qi6tv234esb" path="res://scenes/phone.tscn" id="4_iv8v3"]
-
 [ext_resource type="Script" path="res://scripts/cameralimiter.gd" id="5_t7b54"]
+[ext_resource type="PackedScene" uid="uid://djgimllrvr6si" path="res://scenes/pause_menu.tscn" id="5_yfmlc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo4fq"]
 size = Vector2(700, 1469)
@@ -35,16 +35,8 @@ z_index = -1
 position = Vector2(894.464, -577.147)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Phone" parent="CanvasLayer/Control" instance=ExtResource("4_iv8v3")]
-position = Vector2(247, 178)
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_yfmlc")]
 
 [node name="PhoneLimit" type="Area2D" parent="."]
 script = ExtResource("5_t7b54")
