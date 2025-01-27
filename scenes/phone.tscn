@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3qi6tv234esb"]
+[gd_scene load_steps=7 format=3 uid="uid://d3qi6tv234esb"]
 
 [ext_resource type="Texture2D" uid="uid://d2bgqg0j7qcuw" path="res://assets/Phones/7A.png" id="1_x0t3c"]
 [ext_resource type="Texture2D" uid="uid://biq4jxxf8gbvn" path="res://assets/keyboard/W.png" id="3_dr8qc"]
@@ -7,14 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://5bwegtcv8j8w" path="res://assets/keyboard/SPACEALTERNATIVE.png" id="6_u85b3"]
 [ext_resource type="Texture2D" uid="uid://cow1ed0350qhg" path="res://assets/keyboard/D.png" id="7_rjniu"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_6ofdo"]
-
 [node name="Phone" type="Node2D"]
-
-[node name="MeshInstance2D4" type="MeshInstance2D" parent="."]
-position = Vector2(830.5, 1687)
-scale = Vector2(5065, 542)
-mesh = SubResource("BoxMesh_6ofdo")
 
 [node name="phone" type="Sprite2D" parent="."]
 position = Vector2(613.25, 726.875)
