@@ -26,7 +26,7 @@ position = Vector2(-46, 318)
 scale = Vector2(5.438, 5.438)
 
 [node name="W" type="Sprite2D" parent="Instructions"]
-position = Vector2(-0.510668, 32.2729)
+position = Vector2(27.2159, -12.6885)
 scale = Vector2(0.999908, 0.999908)
 texture = ExtResource("3_dr8qc")
 
@@ -39,7 +39,7 @@ position = Vector2(-0.326771, 51.7653)
 texture = ExtResource("5_dslfp")
 
 [node name="Spacealternative" type="Sprite2D" parent="Instructions"]
-position = Vector2(-0.551671, -11.5851)
+position = Vector2(-22.9864, -12.5046)
 texture = ExtResource("6_u85b3")
 
 [node name="D" type="Sprite2D" parent="Instructions"]
@@ -47,13 +47,13 @@ position = Vector2(18.9408, 51.6734)
 texture = ExtResource("7_rjniu")
 
 [node name="Jump" type="RichTextLabel" parent="Instructions"]
-offset_left = -14.5274
-offset_top = 1.10334
-offset_right = 64.4726
-offset_bottom = 41.1033
+offset_left = -36.2266
+offset_top = -0.735566
+offset_right = 42.7734
+offset_bottom = 39.2644
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 12
-text = "Jump"
+theme_override_font_sizes/normal_font_size = 8
+text = "Jump (press twice to double jump"
 metadata/_edit_use_anchors_ = true
 
 [node name="Left" type="RichTextLabel" parent="Instructions"]
