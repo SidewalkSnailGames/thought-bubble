@@ -211,3 +211,9 @@ func _on_gate_body_entered(body):
 		level_1_1.start_timer()
 		entered = not entered
 		cleared = false
+
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
