@@ -1,9 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://ektmw4m4h83s"]
+[gd_scene load_steps=30 format=3 uid="uid://ektmw4m4h83s"]
 
 [ext_resource type="Script" path="res://scripts/inner_level.gd" id="1_4mynv"]
-[ext_resource type="PackedScene" uid="uid://cms0hj1u25dr3" path="res://scenes/button.tscn" id="2_wgvb7"]
+[ext_resource type="PackedScene" path="res://scenes/button.tscn" id="2_wgvb7"]
 [ext_resource type="PackedScene" uid="uid://b8x10k3ch0skk" path="res://scenes/bubble_piece.tscn" id="3_2wflx"]
-[ext_resource type="PackedScene" uid="uid://dmps3ov2v0drf" path="res://scenes/sublevel_platform.tscn" id="4_hcv6t"]
+[ext_resource type="PackedScene" uid="uid://bxw1qns3dju0t" path="res://scenes/sublevel_platform.tscn" id="4_hcv6t"]
 [ext_resource type="PackedScene" uid="uid://bctihso0vxcwr" path="res://scenes/spike.tscn" id="5_yqf2e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7apvl"]
@@ -161,6 +161,9 @@ _data = {
 "RESET": SubResource("Animation_oahct")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vr4rq"]
+size = Vector2(111, 14)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_4mynv")
 
@@ -311,7 +314,7 @@ scale = Vector2(1210.5, 20)
 mesh = SubResource("BoxMesh_2a4sg")
 
 [node name="MeshInstance2D8" type="MeshInstance2D" parent="Boundaries"]
-position = Vector2(1031.88, 722)
+position = Vector2(1023, 734)
 scale = Vector2(343.75, 20)
 mesh = SubResource("BoxMesh_2a4sg")
 
@@ -360,6 +363,24 @@ position = Vector2(66, 142)
 
 [node name="Platforms" type="Node2D" parent="."]
 
+[node name="Platform4" parent="Platforms" instance=ExtResource("4_hcv6t")]
+position = Vector2(586, 490)
+
+[node name="CollisionShape2D" parent="Platforms/Platform4" index="1"]
+disabled = true
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("4_hcv6t")]
+position = Vector2(436, 332)
+
+[node name="CollisionShape2D" parent="Platforms/Platform5" index="1"]
+disabled = true
+
+[node name="Platform6" parent="Platforms" instance=ExtResource("4_hcv6t")]
+position = Vector2(652, 220)
+
+[node name="CollisionShape2D" parent="Platforms/Platform6" index="1"]
+disabled = true
+
 [node name="Platform" parent="Platforms" instance=ExtResource("4_hcv6t")]
 position = Vector2(247, 207)
 
@@ -387,14 +408,30 @@ libraries = {
 }
 autoplay = "PlatS_move"
 
-[node name="Platform4" parent="Platforms" instance=ExtResource("4_hcv6t")]
-position = Vector2(586, 490)
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="Platform5" parent="Platforms" instance=ExtResource("4_hcv6t")]
-position = Vector2(436, 332)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(585.5, 491)
+shape = SubResource("RectangleShape2D_vr4rq")
+one_way_collision = true
 
-[node name="Platform6" parent="Platforms" instance=ExtResource("4_hcv6t")]
-position = Vector2(652, 220)
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(438, 331)
+shape = SubResource("RectangleShape2D_vr4rq")
+one_way_collision = true
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(651, 221)
+shape = SubResource("RectangleShape2D_vr4rq")
+one_way_collision = true
 
 [connection signal="has_chosen" from="Good" to="." method="_on_bubble_good_has_chosen"]
 [connection signal="has_chosen" from="Bad" to="." method="_on_bubble_bad_has_chosen"]
+
+[editable path="Platforms/Platform4"]
+[editable path="Platforms/Platform5"]
+[editable path="Platforms/Platform6"]

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b8x10k3ch0skk" path="res://scenes/bubble_piece.tscn" id="1_7nsye"]
 [ext_resource type="PackedScene" uid="uid://bxw1qns3dju0t" path="res://scenes/sublevel_platform.tscn" id="1_sq0mn"]
 [ext_resource type="Script" path="res://scenes/label.gd" id="1_w725x"]
-[ext_resource type="PackedScene" path="res://scenes/spike.tscn" id="5_hp04q"]
+[ext_resource type="PackedScene" uid="uid://bctihso0vxcwr" path="res://scenes/spike.tscn" id="5_hp04q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snvrm"]
 size = Vector2(701, 20)
