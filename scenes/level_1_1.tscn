@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ngkr3aoygruo"]
+[gd_scene load_steps=8 format=3 uid="uid://dhubybh0dtipc"]
 
 [ext_resource type="Script" path="res://scripts/inner_level.gd" id="1_0xpn5"]
 [ext_resource type="PackedScene" uid="uid://b8x10k3ch0skk" path="res://scenes/bubble_piece.tscn" id="1_7nsye"]
-[ext_resource type="PackedScene" path="res://scenes/sublevel_platform.tscn" id="1_sq0mn"]
+[ext_resource type="PackedScene" uid="uid://bh42nw20lbrra" path="res://scenes/sublevel_platform.tscn" id="1_sq0mn"]
 [ext_resource type="Script" path="res://scenes/label.gd" id="1_w725x"]
-[ext_resource type="PackedScene" path="res://scenes/spike.tscn" id="5_hp04q"]
+[ext_resource type="PackedScene" uid="uid://bj1oeghcgw6ck" path="res://scenes/spike.tscn" id="5_hp04q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snvrm"]
 size = Vector2(701, 20)
@@ -57,12 +57,14 @@ position = Vector2(722, 278)
 
 [node name="Level Choices" type="Node2D" parent="."]
 
-[node name="Bubble Good" parent="Level Choices" instance=ExtResource("1_7nsye")]
+[node name="Bubble Good" parent="Level Choices" node_paths=PackedStringArray("respawn_point") instance=ExtResource("1_7nsye")]
 position = Vector2(539, -13)
+respawn_point = NodePath("../../Respawn Point")
 text = "Good"
 
-[node name="Bubble Bad" parent="Level Choices" instance=ExtResource("1_7nsye")]
+[node name="Bubble Bad" parent="Level Choices" node_paths=PackedStringArray("respawn_point") instance=ExtResource("1_7nsye")]
 position = Vector2(630, -13)
+respawn_point = NodePath("../../Respawn Point")
 text = "Bad"
 moral = 1
 
