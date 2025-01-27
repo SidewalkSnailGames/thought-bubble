@@ -22,12 +22,12 @@ scale = Vector2(1997, 1991)
 mesh = SubResource("BoxMesh_6ofdo")
 
 [node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
-position = Vector2(2159, 449)
+position = Vector2(4171, 469)
 scale = Vector2(2408, 1982)
 mesh = SubResource("BoxMesh_6ofdo")
 
 [node name="MeshInstance2D3" type="MeshInstance2D" parent="."]
-position = Vector2(809, -254)
+position = Vector2(821, -818)
 scale = Vector2(2408, 546)
 mesh = SubResource("BoxMesh_6ofdo")
 
@@ -63,22 +63,18 @@ texture = ExtResource("3_dr8qc")
 
 [node name="A" type="Sprite2D" parent="Instructions"]
 position = Vector2(-19.8192, 51.7653)
-scale = Vector2(1, 1)
 texture = ExtResource("4_1os0w")
 
 [node name="S" type="Sprite2D" parent="Instructions"]
 position = Vector2(-0.326771, 51.7653)
-scale = Vector2(1, 1)
 texture = ExtResource("5_dslfp")
 
 [node name="Spacealternative" type="Sprite2D" parent="Instructions"]
 position = Vector2(-0.551671, -11.5851)
-scale = Vector2(1, 1)
 texture = ExtResource("6_u85b3")
 
 [node name="D" type="Sprite2D" parent="Instructions"]
 position = Vector2(18.9408, 51.6734)
-scale = Vector2(1, 1)
 texture = ExtResource("7_rjniu")
 
 [node name="Jump" type="RichTextLabel" parent="Instructions"]

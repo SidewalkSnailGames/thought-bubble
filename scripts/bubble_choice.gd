@@ -4,8 +4,9 @@ extends Area2D
 @export var text: String = ""
 @onready var label: Label = $Label
 @export var moral: morality
-static var has_chosen
 static var choice
+
+signal has_chosen
 
 func _ready():
 	label.text = text
@@ -36,3 +37,4 @@ func _on_body_entered(body: Node2D) -> void:
 		print(choice)
 	
 	disable_children()
+	has_chosen.emit()

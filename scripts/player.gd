@@ -2,13 +2,14 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -650.0
+const JUMP_VELOCITY = -500.0
 
 var can_jump = true
 @onready var animator = $AnimatedSprite2D
 @onready var audioplayer = $Jumpsfx
 var jump_count = 0
 var max_jump = 2
+var jump_velocity = -650
 
 func _physics_process(delta):
 	# Add the gravity.

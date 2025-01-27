@@ -10,8 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://cpebce6mb3hta" path="res://audio/jumpsfx.mp3" id="8_vd26y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ujmxx"]
-radius = 12.0
-height = 42.0
+radius = 23.0
+height = 84.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6hocm"]
 atlas = ExtResource("2_44f1k")
@@ -1101,9 +1101,11 @@ debug_color = Color(0, 0.6, 0.709804, 0.784314)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
-scale = Vector2(0.274726, 0.274726)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8gyar")
-animation = &"jump"
+animation = &"run-loop"
+frame = 7
+frame_progress = 0.0217145
 script = ExtResource("7_0wg25")
 
 [node name="Jumpsfx" type="AudioStreamPlayer2D" parent="."]
