@@ -11,21 +11,6 @@
 
 [node name="Phone" type="Node2D"]
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(-698.5, 463.5)
-scale = Vector2(1997, 1991)
-mesh = SubResource("BoxMesh_6ofdo")
-
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
-position = Vector2(4171, 469)
-scale = Vector2(2408, 1982)
-mesh = SubResource("BoxMesh_6ofdo")
-
-[node name="MeshInstance2D3" type="MeshInstance2D" parent="."]
-position = Vector2(821, -818)
-scale = Vector2(2408, 546)
-mesh = SubResource("BoxMesh_6ofdo")
-
 [node name="MeshInstance2D4" type="MeshInstance2D" parent="."]
 position = Vector2(830.5, 1687)
 scale = Vector2(5065, 542)
