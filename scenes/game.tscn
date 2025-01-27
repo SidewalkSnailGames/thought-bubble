@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dn5c81qsp558f"]
+[gd_scene load_steps=12 format=3 uid="uid://dn5c81qsp558f"]
 
 [ext_resource type="PackedScene" uid="uid://wyksy6jberae" path="res://scenes/background.tscn" id="1_oxexx"]
 [ext_resource type="PackedScene" uid="uid://be8ile0eybqw2" path="res://scenes/level_1.tscn" id="1_ry0ud"]
 [ext_resource type="PackedScene" uid="uid://nxryqbpliqb1" path="res://scenes/player.tscn" id="2_fk7wt"]
 [ext_resource type="PackedScene" uid="uid://d3qi6tv234esb" path="res://scenes/phone.tscn" id="4_iv8v3"]
 [ext_resource type="Script" path="res://scripts/cameralimiter.gd" id="5_t7b54"]
-[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="5_yfmlc"]
+[ext_resource type="PackedScene" uid="uid://djgimllrvr6si" path="res://scenes/pause_menu.tscn" id="5_yfmlc"]
 [ext_resource type="AudioStream" uid="uid://c8e76lc8ostb7" path="res://assets/bg/Music/Story of Maple.wav" id="7_011nc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo4fq"]
@@ -13,6 +13,11 @@ size = Vector2(700, 1260)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1u7n"]
 size = Vector2(623, 1145)
+
+[sub_resource type="BoxMesh" id="BoxMesh_80psg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6av0l"]
+size = Vector2(639.5, 117)
 
 [node name="Game" type="Node2D"]
 position = Vector2(-665, -266)
@@ -58,3 +63,15 @@ autoplay = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PhoneScreen"]
 position = Vector2(286.5, 152.5)
 shape = SubResource("RectangleShape2D_c1u7n")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="StaticBody2D"]
+modulate = Color(0.564706, 0.368627, 0.662745, 1)
+position = Vector2(288.75, 775.5)
+scale = Vector2(650.5, 95.0001)
+mesh = SubResource("BoxMesh_80psg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(287, 777.5)
+shape = SubResource("RectangleShape2D_6av0l")
