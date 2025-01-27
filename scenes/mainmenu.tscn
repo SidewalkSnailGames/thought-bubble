@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://541w5qqccqkh"]
+[gd_scene load_steps=11 format=3 uid="uid://541w5qqccqkh"]
 
 [ext_resource type="PackedScene" uid="uid://wyksy6jberae" path="res://scenes/background.tscn" id="1_hypwy"]
 [ext_resource type="Script" path="res://mainmenu.gd" id="1_lnhkg"]
@@ -7,6 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://u4ag0w7yx5rf" path="res://assets/thoughtbubblelogo.png" id="4_lcq4x"]
 [ext_resource type="Texture2D" uid="uid://btqooaavfhto6" path="res://assets/sidewalksnailgameslogo.PNG" id="6_1dxk4"]
 [ext_resource type="Texture2D" uid="uid://bssc6qbee57dg" path="res://assets/thought bubble platforms/Emotes2.png" id="7_ompbo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yxwlp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b8roi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4d4nl"]
 
 [node name="mainmenu" type="Control"]
 layout_mode = 3
@@ -17,9 +23,29 @@ script = ExtResource("1_lnhkg")
 position = Vector2(1411, 239)
 scale = Vector2(0.336543, 0.336543)
 
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-312, 355)
+scale = Vector2(1112, 714)
+mesh = SubResource("BoxMesh_yxwlp")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="."]
+position = Vector2(167, -9.00002)
+scale = Vector2(2072, 230)
+mesh = SubResource("BoxMesh_b8roi")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="."]
+position = Vector2(827.25, 319)
+scale = Vector2(755.5, 506)
+mesh = SubResource("BoxMesh_b8roi")
+
 [node name="Phone" parent="." instance=ExtResource("2_ra7vm")]
 position = Vector2(157, 103)
 scale = Vector2(0.309317, 0.311076)
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="Phone"]
+position = Vector2(853.493, 1735.91)
+scale = Vector2(5065, 542)
+mesh = SubResource("BoxMesh_4d4nl")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kxb1r")

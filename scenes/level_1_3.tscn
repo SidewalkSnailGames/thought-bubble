@@ -1,0 +1,348 @@
+[gd_scene load_steps=28 format=3 uid="uid://ektmw4m4h83s"]
+
+[ext_resource type="Script" path="res://scripts/inner_level.gd" id="1_4mynv"]
+[ext_resource type="PackedScene" uid="uid://cms0hj1u25dr3" path="res://scenes/button.tscn" id="2_wgvb7"]
+[ext_resource type="PackedScene" uid="uid://b8x10k3ch0skk" path="res://scenes/bubble_piece.tscn" id="3_2wflx"]
+[ext_resource type="PackedScene" uid="uid://dmps3ov2v0drf" path="res://scenes/sublevel_platform.tscn" id="4_hcv6t"]
+[ext_resource type="PackedScene" uid="uid://bctihso0vxcwr" path="res://scenes/spike.tscn" id="5_yqf2e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7apvl"]
+size = Vector2(1210, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkyya"]
+size = Vector2(1210, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24ob1"]
+size = Vector2(20, 900)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vmhi"]
+size = Vector2(20, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_do4vm"]
+size = Vector2(20, 693)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jv50"]
+size = Vector2(20, 658)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhfv6"]
+size = Vector2(156, 20)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1lrye"]
+b = Vector2(-192, -415)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7cb0u"]
+b = Vector2(192, -415)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gd5s"]
+size = Vector2(359, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbd83"]
+size = Vector2(112, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0tof"]
+size = Vector2(94, 35.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akxlb"]
+size = Vector2(155, 20)
+
+[sub_resource type="Animation" id="Animation_d41ol"]
+resource_name = "PlatD_move"
+length = 2.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(247, 207), Vector2(247, 420)]
+}
+
+[sub_resource type="Animation" id="Animation_tthpo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(247, 207)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1hjcc"]
+_data = {
+"PlatD_move": SubResource("Animation_d41ol"),
+"RESET": SubResource("Animation_tthpo")
+}
+
+[sub_resource type="Animation" id="Animation_kdawj"]
+resource_name = "PlatU_move"
+length = 2.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(106, 801), Vector2(106, 422)]
+}
+
+[sub_resource type="Animation" id="Animation_vqlon"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(106, 801)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_soo2t"]
+_data = {
+"PlatU_move": SubResource("Animation_kdawj"),
+"RESET": SubResource("Animation_vqlon")
+}
+
+[sub_resource type="Animation" id="Animation_5mdhw"]
+resource_name = "PlatS_move"
+length = 2.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(247, 801), Vector2(568, 801)]
+}
+
+[sub_resource type="Animation" id="Animation_oahct"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(247, 801)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sob5m"]
+_data = {
+"PlatS_move": SubResource("Animation_5mdhw"),
+"RESET": SubResource("Animation_oahct")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_4mynv")
+
+[node name="Boundaries" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(605, 0)
+shape = SubResource("RectangleShape2D_7apvl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(605, 880)
+shape = SubResource("RectangleShape2D_dkyya")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1200, 440)
+shape = SubResource("RectangleShape2D_24ob1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(10, 39.5)
+shape = SubResource("RectangleShape2D_3vmhi")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(10, 543.5)
+shape = SubResource("RectangleShape2D_do4vm")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(350, 319)
+shape = SubResource("RectangleShape2D_3jv50")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(700, 561)
+shape = SubResource("RectangleShape2D_3jv50")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(78, 207)
+shape = SubResource("RectangleShape2D_fhfv6")
+
+[node name="CollisionShape2D line 1" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(900, 648)
+shape = SubResource("SegmentShape2D_1lrye")
+one_way_collision_margin = 0.0
+
+[node name="CollisionShape2D line 2" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1000, 648)
+shape = SubResource("SegmentShape2D_7cb0u")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1031, 734)
+shape = SubResource("RectangleShape2D_4gd5s")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(396, 638)
+shape = SubResource("RectangleShape2D_pbd83")
+
+[node name="Good" parent="." node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_2wflx")]
+position = Vector2(1142, 769)
+respawn_point = NodePath("../Respawn Point")
+text = "Good"
+
+[node name="Bad" parent="." node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_2wflx")]
+position = Vector2(1050, 770)
+respawn_point = NodePath("../Respawn Point")
+text = "Bad"
+moral = 1
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Button 1" parent="Buttons" node_paths=PackedStringArray("removeObject") instance=ExtResource("2_wgvb7")]
+position = Vector2(123, 187)
+scale = Vector2(0.25, 0.25)
+removeObject = NodePath("../Lock 1")
+buttonColor = Color(0, 0.556863, 0, 1)
+
+[node name="Lock 1" type="StaticBody2D" parent="Buttons"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Lock 1"]
+position = Vector2(399, 615)
+shape = SubResource("RectangleShape2D_a0tof")
+debug_color = Color(0, 0.556863, 0, 1)
+
+[node name="Button2" parent="Buttons" node_paths=PackedStringArray("removeObject") instance=ExtResource("2_wgvb7")]
+position = Vector2(401, 613)
+scale = Vector2(0.25, 0.25)
+removeObject = NodePath("../Lock 2")
+buttonColor = Color(0, 0, 0.643137, 1)
+
+[node name="Lock 2" type="StaticBody2D" parent="Buttons"]
+position = Vector2(783, 725)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Lock 2"]
+position = Vector2(-2, 10)
+shape = SubResource("RectangleShape2D_akxlb")
+debug_color = Color(0, 0, 0.643137, 1)
+
+[node name="Respawn Point" type="Node2D" parent="."]
+position = Vector2(66, 142)
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Spike" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_yqf2e")]
+position = Vector2(92, 863)
+respawn_point = NodePath("../../Respawn Point")
+
+[node name="Spike2" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_yqf2e")]
+position = Vector2(260, 863)
+scale = Vector2(1.1, 1)
+respawn_point = NodePath("../../Respawn Point")
+
+[node name="Spike3" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_yqf2e")]
+position = Vector2(431, 863)
+scale = Vector2(1.1, 1)
+respawn_point = NodePath("../../Respawn Point")
+
+[node name="Spike4" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_yqf2e")]
+position = Vector2(601, 863)
+respawn_point = NodePath("../../Respawn Point")
+
+[node name="Spike5" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_yqf2e")]
+position = Vector2(801, 419)
+rotation = 1.13446
+respawn_point = NodePath("../../Respawn Point")
+
+[node name="Spike6" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_yqf2e")]
+position = Vector2(869, 565)
+rotation = 1.13446
+respawn_point = NodePath("../../Respawn Point")
+
+[node name="Spike7" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_yqf2e")]
+position = Vector2(743, 296)
+rotation = 1.13446
+respawn_point = NodePath("../../Respawn Point")
+
+[node name="Spike8" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_yqf2e")]
+position = Vector2(1023, 580)
+rotation = -1.13446
+respawn_point = NodePath("../../Respawn Point")
+
+[node name="Spike9" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_yqf2e")]
+position = Vector2(1091, 434)
+rotation = -1.13446
+respawn_point = NodePath("../../Respawn Point")
+
+[node name="Spike10" parent="Spikes" node_paths=PackedStringArray("respawn_point") instance=ExtResource("5_yqf2e")]
+position = Vector2(1159, 288)
+rotation = -1.13446
+respawn_point = NodePath("../../Respawn Point")
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource("4_hcv6t")]
+position = Vector2(247, 207)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform"]
+libraries = {
+"": SubResource("AnimationLibrary_1hjcc")
+}
+autoplay = "PlatD_move"
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("4_hcv6t")]
+position = Vector2(106, 801)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2"]
+libraries = {
+"": SubResource("AnimationLibrary_soo2t")
+}
+autoplay = "PlatU_move"
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("4_hcv6t")]
+position = Vector2(247, 801)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform3"]
+libraries = {
+"": SubResource("AnimationLibrary_sob5m")
+}
+autoplay = "PlatS_move"
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("4_hcv6t")]
+position = Vector2(586, 490)
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("4_hcv6t")]
+position = Vector2(436, 332)
+
+[node name="Platform6" parent="Platforms" instance=ExtResource("4_hcv6t")]
+position = Vector2(652, 220)
+
+[connection signal="has_chosen" from="Good" to="." method="_on_bubble_good_has_chosen"]
+[connection signal="has_chosen" from="Bad" to="." method="_on_bubble_bad_has_chosen"]

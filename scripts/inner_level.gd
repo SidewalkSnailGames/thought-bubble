@@ -5,14 +5,16 @@ static var choice
 
 
 func start_timer():
-	$"CanvasLayer/Displays Timer".visible = true
-	$Timer.start()
-	$"CanvasLayer/Displays Timer".started = true
+	if $"CanvasLayer/Displays Timer" != null:
+		$"CanvasLayer/Displays Timer".visible = true
+		$Timer.start()
+		$"CanvasLayer/Displays Timer".started = true
 
 
 func stop_timer():
-	$"CanvasLayer/Displays Timer".visible = false
-	$Timer.stop()
+	if $"CanvasLayer/Displays Timer" != null:
+		$"CanvasLayer/Displays Timer".visible = false
+		$Timer.stop()
 	
 
 func _on_bubble_good_has_chosen():

@@ -37,14 +37,34 @@ position = Vector2(355, 128)
 position = Vector2(588, 77)
 scale = Vector2(1.9, 1)
 
+[node name="Platform 4" parent="Platforms" instance=ExtResource("1_sq0mn")]
+position = Vector2(58, 278)
+
+[node name="Platform 5" parent="Platforms" instance=ExtResource("1_sq0mn")]
+position = Vector2(192, 278)
+
+[node name="Platform 6" parent="Platforms" instance=ExtResource("1_sq0mn")]
+position = Vector2(329, 278)
+
+[node name="Platform 7" parent="Platforms" instance=ExtResource("1_sq0mn")]
+position = Vector2(463, 278)
+
+[node name="Platform 8" parent="Platforms" instance=ExtResource("1_sq0mn")]
+position = Vector2(594, 278)
+
+[node name="Platform 9" parent="Platforms" instance=ExtResource("1_sq0mn")]
+position = Vector2(722, 278)
+
 [node name="Level Choices" type="Node2D" parent="."]
 
-[node name="Bubble Good" parent="Level Choices" instance=ExtResource("1_7nsye")]
+[node name="Bubble Good" parent="Level Choices" node_paths=PackedStringArray("respawn_point") instance=ExtResource("1_7nsye")]
 position = Vector2(539, -13)
+respawn_point = NodePath("../../Respawn Point")
 text = "Good"
 
-[node name="Bubble Bad" parent="Level Choices" instance=ExtResource("1_7nsye")]
+[node name="Bubble Bad" parent="Level Choices" node_paths=PackedStringArray("respawn_point") instance=ExtResource("1_7nsye")]
 position = Vector2(630, -13)
+respawn_point = NodePath("../../Respawn Point")
 text = "Bad"
 moral = 1
 

@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://c8e76lc8ostb7" path="res://assets/bg/Music/Story of Maple.wav" id="7_011nc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo4fq"]
-size = Vector2(1921, 1580)
+size = Vector2(2755, 2289)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1u7n"]
 size = Vector2(623, 1145)
@@ -56,11 +56,10 @@ position = Vector2(894.464, -577.147)
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_yfmlc")]
 
 [node name="PhoneLimit" type="Area2D" parent="."]
-visible = false
 script = ExtResource("5_t7b54")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PhoneLimit"]
-position = Vector2(896.5, -65)
+position = Vector2(1313.5, 289.5)
 shape = SubResource("RectangleShape2D_xo4fq")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

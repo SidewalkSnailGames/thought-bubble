@@ -3,11 +3,13 @@ extends Node2D
 const CHAT_VERT_SPACING = 58
 const END = "end"
 const TYPING_LENGTH = 2
-const CHAT_EXCLUDE = ["Scripts", "Level 1-1", "Level 1-2", "Level 1-3", "Gate", "Wall"]
+const CHAT_EXCLUDE = ["Scripts", "Level 1-1", "Level 1-2", "Level 1-3", "Gate_1", "Wall_1", "Gate_2", "Wall_2", "Gate_3", "Wall_3"]
 
 @onready var phone_screen_shape: CollisionShape2D = $"../PhoneScreen/CollisionShape2D"
 @onready var gate = $Gate
 @onready var level_1_1 = $"Level 1-1"
+@onready var level_1_2 = $"Level 1-2"
+@onready var level_1_3 = $"Level 1-3"
 
 @export var script_name: String = "level_1_scripts.gd"
 var first_msg = "ann-1"
@@ -44,10 +46,15 @@ func _ready() -> void:
 	
 	new_scroll_position_y = position.y
 	
-	level_1_1.has_chosen.connect(has_chosen)
+	level_1_1.has_chosen.connect(has_chosen_1)
+	level_1_2.has_chosen.connect(has_chosen_2)
+	#for child in level_1_2.get_node("Boundaries").get_children():
+		#if 
+		#child.set_deferred("disabled")
+	level_1_3.has_chosen.connect(has_chosen_3)
 
 
-func has_chosen():
+func has_chosen_1():
 	cleared = true
 	level_1_1.stop_timer()
 	
@@ -58,7 +65,6 @@ func has_chosen():
 		choice = 0
 		await fill_in_msg(last_msg, choice)
 		_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
-		show_typing_bubble()
 		await _wait(2)
 		await show_msg(new_msg)
 	elif choice == "Bad":
@@ -66,7 +72,50 @@ func has_chosen():
 		choice = 1
 		await fill_in_msg(last_msg, choice)
 		_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
-		show_typing_bubble()
+		await _wait(2)
+		await show_msg(new_msg)
+
+
+func has_chosen_2():
+	cleared = true
+	level_1_2.stop_timer()
+	
+	var new_msg
+	var choice = level_1_2.choice
+	if choice == "Good":
+		new_msg = paths[last_msg][0]
+		choice = 0
+		await fill_in_msg(last_msg, choice)
+		_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
+		await _wait(2)
+		await show_msg(new_msg)
+	elif choice == "Bad":
+		new_msg = paths[last_msg][1]
+		choice = 1
+		await fill_in_msg(last_msg, choice)
+		_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
+		await _wait(2)
+		await show_msg(new_msg)
+
+
+func has_chosen_3():
+	cleared = true
+	level_1_3.stop_timer()
+	
+	var new_msg
+	var choice = level_1_3.choice
+	if choice == "Good":
+		new_msg = paths[last_msg][0]
+		choice = 0
+		await fill_in_msg(last_msg, choice)
+		_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
+		await _wait(2)
+		await show_msg(new_msg)
+	elif choice == "Bad":
+		new_msg = paths[last_msg][1]
+		choice = 1
+		await fill_in_msg(last_msg, choice)
+		_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
 		await _wait(2)
 		await show_msg(new_msg)
 
@@ -86,28 +135,7 @@ func _process(delta: float) -> void:
 		position.y = new_scroll_position_y
 		
 	# if no end choice/end, then prevent from pressing left/right
-	if get_next_msg_id(last_msg) == END: return
-	
-	#var new_msg
-	#var choice
-	#if Input.is_action_just_pressed("ui_left"): # good choice
-		#new_msg = paths[last_msg][0]
-		#choice = 0
-		#await fill_in_msg(last_msg, choice)
-		#_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
-		#show_typing_bubble()
-		#await _wait(2)
-		#await show_msg(new_msg)
-	#elif Input.is_action_just_pressed("ui_right"): # bad choice
-		#new_msg = paths[last_msg][1]
-		#choice = 1
-		#await fill_in_msg(last_msg, choice)
-		#_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
-		#show_typing_bubble()
-		#await _wait(2)
-		#await show_msg(new_msg)
-	#await _wait()
-	
+	if get_next_msg_id(last_msg) == END: return	
 	
 
 func fill_in_msg(msg_id, choice):
@@ -124,17 +152,6 @@ func fill_in_msg(msg_id, choice):
 	await msg.set_collision_shape_dirty_flag()
 
 
-func show_typing_bubble():
-	pass
-	#await _wait()
-	#var bubble = typing_bubble.instantiate()
-	#add_child(bubble)
-	#bubble.set_deferred("position", new_position)
-	#await _wait()
-	#_move_dmhub_up()
-	#await _wait(TYPING_LENGTH)
-	#bubble.queue_free()
-
 func show_msg(msg_id):
 	var msg = get_node(msg_id)
 	msg.set_enabled(true)
@@ -149,8 +166,12 @@ func show_msg(msg_id):
 	if (can_show_next_msg(msg_id)):
 		var next_msg = get_next_msg_id(msg_id)
 		_set_next_msg_pos(get_node(last_msg), get_node(next_msg))
-		show_typing_bubble()
 		await _wait(2)
+		if next_msg in ["james-2", "james-3"]:
+			$Gate_2/CollisionShape2D.set_deferred("disabled", false)
+		elif next_msg in ["james-4", "james-5", "james-6", "james-7"]:
+			$Gate_3/CollisionShape2D.set_deferred("disabled", false)
+
 		show_msg(next_msg)
 		await _wait()
 		_move_dmhub_up()
@@ -206,12 +227,41 @@ func _move_dmhub_up():
 	offset += (dm_dimension - phone_screen_shape.shape.size.y) + CHAT_VERT_SPACING
 
 
-func _on_gate_body_entered(body):
+func _on_gate_1_body_entered(body):
 	if body.name == "Player" and not entered:
 		level_1_1.start_timer()
 		entered = not entered
 		cleared = false
 	elif body.name == "Player" and cleared:
 		level_1_1.visible = false
-		$Gate/CollisionShape2D.set_deferred("disabled", true)
-		$Wall/CollisionShape2D.set_deferred("disabled", false)
+		$Gate_1/CollisionShape2D.set_deferred("disabled", true)
+		$Wall_1/CollisionShape2D.set_deferred("disabled", false)
+		level_1_1.queue_free()
+		cleared = false
+		entered = false
+		
+
+func _on_gate_2_body_entered(body):
+	if body.name == "Player" and not entered:
+		level_1_2.start_timer()
+		entered = not entered
+		cleared = false
+	elif body.name == "Player" and cleared:
+		level_1_2.visible = false
+		$Gate_2/CollisionShape2D.set_deferred("disabled", true)
+		$Wall_2/CollisionShape2D.set_deferred("disabled", false)
+		level_1_2.queue_free()
+		cleared = false
+		entered = false
+
+
+func _on_gate_3_body_entered(body):
+	if body.name == "Player" and not entered:
+		#level_1_3.start_timer()
+		entered = not entered
+		cleared = false
+	elif body.name == "Player" and cleared:
+		level_1_3.visible = false
+		$Gate_3/CollisionShape2D.set_deferred("disabled", true)
+		$Wall_3/CollisionShape2D.set_deferred("disabled", false)
+		level_1_3.queue_free()

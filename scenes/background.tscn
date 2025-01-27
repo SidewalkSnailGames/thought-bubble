@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://wyksy6jberae"]
+[gd_scene load_steps=5 format=3 uid="uid://wyksy6jberae"]
 
 [ext_resource type="Shader" path="res://scenes/background.gdshader" id="1_hvajg"]
 [ext_resource type="Texture2D" uid="uid://dld4l4t0tm8e2" path="res://assets/bg/Sky_Day_BlueSky_Equirect.png" id="2_6yeui"]
@@ -7,12 +7,6 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8w0go"]
 shader = ExtResource("1_hvajg")
 shader_parameter/scroll_speed = null
-
-[sub_resource type="BoxMesh" id="BoxMesh_pme2c"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_6451x"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_47pm6"]
 
 [node name="background" type="Node2D"]
 texture_filter = 1
@@ -113,15 +107,3 @@ texture = ExtResource("2_dkv73")
 [node name="City2" type="Sprite2D" parent="Parallax2D2/City"]
 position = Vector2(3432, -1)
 texture = ExtResource("2_dkv73")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
-modulate = Color(0.141176, 0.109804, 0.109804, 1)
-position = Vector2(234.5, 976)
-scale = Vector2(10319, 706)
-mesh = SubResource("BoxMesh_pme2c")
-texture = SubResource("CanvasTexture_6451x")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_47pm6")

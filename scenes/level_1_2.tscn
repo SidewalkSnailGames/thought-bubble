@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://cw1bfywukx46x"]
+[gd_scene load_steps=20 format=3 uid="uid://o7jj2b7smeme"]
 
-[ext_resource type="PackedScene" path="res://scenes/bubble_piece.tscn" id="1_uf60q"]
-[ext_resource type="PackedScene" path="res://scenes/sublevel_platform.tscn" id="2_hqcdn"]
+[ext_resource type="Script" path="res://scripts/inner_level.gd" id="1_ghenr"]
+[ext_resource type="PackedScene" uid="uid://b8x10k3ch0skk" path="res://scenes/bubble_piece.tscn" id="1_uf60q"]
+[ext_resource type="PackedScene" uid="uid://dmps3ov2v0drf" path="res://scenes/sublevel_platform.tscn" id="2_hqcdn"]
 [ext_resource type="PackedScene" uid="uid://bctihso0vxcwr" path="res://scenes/spike.tscn" id="3_5ynh2"]
-[ext_resource type="PackedScene" uid="uid://nxryqbpliqb1" path="res://scenes/player.tscn" id="4_7d3b8"]
-[ext_resource type="Script" path="res://scenes/displays_timer.gd" id="5_0ji70"]
+[ext_resource type="Script" path="res://scenes/label.gd" id="5_lsb2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2jx2"]
 size = Vector2(1643, 20)
@@ -135,6 +135,7 @@ _data = {
 }
 
 [node name="Level 1_2" type="Node2D"]
+script = ExtResource("1_ghenr")
 
 [node name="Boundaries" type="StaticBody2D" parent="."]
 
@@ -175,11 +176,16 @@ shape = SubResource("RectangleShape2D_6efmt")
 position = Vector2(1539, 117)
 shape = SubResource("RectangleShape2D_jl6ox")
 
-[node name="Bubble Piece" parent="Boundaries" instance=ExtResource("1_uf60q")]
+[node name="Good" parent="Boundaries" node_paths=PackedStringArray("respawn_point") instance=ExtResource("1_uf60q")]
 position = Vector2(1573, 37)
+respawn_point = NodePath("../../Respawn Point")
+text = "Good"
 
-[node name="Bubble Piece2" parent="Boundaries" instance=ExtResource("1_uf60q")]
+[node name="Bad" parent="Boundaries" node_paths=PackedStringArray("respawn_point") instance=ExtResource("1_uf60q")]
 position = Vector2(1491, 37)
+respawn_point = NodePath("../../Respawn Point")
+text = "bad"
+moral = 1
 
 [node name="Respawn Point" type="Node2D" parent="."]
 position = Vector2(39, 279)
@@ -255,19 +261,24 @@ respawn_point = NodePath("../../Respawn Point")
 position = Vector2(1449, 0)
 respawn_point = NodePath("../../Respawn Point")
 
-[node name="Player" parent="Spikes" instance=ExtResource("4_7d3b8")]
-position = Vector2(-45, -106)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 25.0
 autostart = true
 
-[node name="Displays Timer" type="Label" parent="Timer"]
-offset_left = 494.0
-offset_top = 23.0
-offset_right = 534.0
-offset_bottom = 46.0
-script = ExtResource("5_0ji70")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Displays Timer" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+script = ExtResource("5_lsb2d")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="timeout" from="Timer" to="Timer/Displays Timer" method="_on_timer_timeout"]
+[connection signal="has_chosen" from="Boundaries/Good" to="." method="_on_bubble_good_has_chosen"]
+[connection signal="has_chosen" from="Boundaries/Bad" to="." method="_on_bubble_bad_has_chosen"]
+[connection signal="timeout" from="Timer" to="CanvasLayer/Displays Timer" method="_on_timer_timeout"]
