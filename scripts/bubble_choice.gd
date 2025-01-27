@@ -1,5 +1,6 @@
 extends Area2D
 
+@export var respawn_point: Node2D
 @onready var level_choices: Node2D = $".."
 @export var text: String = ""
 @onready var label: Label = $Label
@@ -28,6 +29,9 @@ func disable_children():
 		#child.visible = false
 
 func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		body.global_position = respawn_point.global_position
+		
 	if moral == morality.Good:
 		choice = "Good"
 		print(choice)

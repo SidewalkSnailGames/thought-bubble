@@ -225,12 +225,14 @@ visible = false
 z_index = -1
 position = Vector2(894.464, -577.147)
 
-[node name="Good" parent="." instance=ExtResource("3_2wflx")]
+[node name="Good" parent="." node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_2wflx")]
 position = Vector2(1141, 753)
+respawn_point = NodePath("../Respawn Point")
 text = "Good"
 
-[node name="Bad" parent="." instance=ExtResource("3_2wflx")]
+[node name="Bad" parent="." node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_2wflx")]
 position = Vector2(1050, 753)
+respawn_point = NodePath("../Respawn Point")
 text = "Bad"
 moral = 1
 

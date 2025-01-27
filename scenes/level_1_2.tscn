@@ -1,8 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://cw1bfywukx46x"]
+[gd_scene load_steps=20 format=3 uid="uid://o7jj2b7smeme"]
 
-[ext_resource type="PackedScene" path="res://scenes/bubble_piece.tscn" id="1_uf60q"]
-[ext_resource type="PackedScene" path="res://scenes/sublevel_platform.tscn" id="2_hqcdn"]
-[ext_resource type="PackedScene" uid="uid://bctihso0vxcwr" path="res://scenes/spike.tscn" id="3_5ynh2"]
+[ext_resource type="PackedScene" uid="uid://b8x10k3ch0skk" path="res://scenes/bubble_piece.tscn" id="1_uf60q"]
+[ext_resource type="PackedScene" uid="uid://bh42nw20lbrra" path="res://scenes/sublevel_platform.tscn" id="2_hqcdn"]
+[ext_resource type="PackedScene" uid="uid://bj1oeghcgw6ck" path="res://scenes/spike.tscn" id="3_5ynh2"]
 [ext_resource type="PackedScene" uid="uid://nxryqbpliqb1" path="res://scenes/player.tscn" id="4_7d3b8"]
 [ext_resource type="Script" path="res://scenes/displays_timer.gd" id="5_0ji70"]
 
@@ -175,11 +175,16 @@ shape = SubResource("RectangleShape2D_6efmt")
 position = Vector2(1539, 117)
 shape = SubResource("RectangleShape2D_jl6ox")
 
-[node name="Bubble Piece" parent="Boundaries" instance=ExtResource("1_uf60q")]
+[node name="Good" parent="Boundaries" node_paths=PackedStringArray("respawn_point") instance=ExtResource("1_uf60q")]
 position = Vector2(1573, 37)
+respawn_point = NodePath("../../Respawn Point")
+text = "Good"
 
-[node name="Bubble Piece2" parent="Boundaries" instance=ExtResource("1_uf60q")]
+[node name="Bad" parent="Boundaries" node_paths=PackedStringArray("respawn_point") instance=ExtResource("1_uf60q")]
 position = Vector2(1491, 37)
+respawn_point = NodePath("../../Respawn Point")
+text = "bad"
+moral = 1
 
 [node name="Respawn Point" type="Node2D" parent="."]
 position = Vector2(39, 279)
