@@ -1,11 +1,14 @@
 extends Label
 
-@onready var timer := $"../Timer"
+@onready var timer := $"../../Timer"
 @onready var gameover = $"."
 
+var started = false
+#var stopped = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	text = _format_seconds(timer.get_wait_time(), true)
 	timer.connect("timeout", _on_timer_timeout)
 	
 func _on_timer_timeout() -> void:
@@ -16,7 +19,8 @@ func toggle_visibility():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	text = _format_seconds(timer.get_time_left(), true)
+	if started:
+		text = _format_seconds(timer.get_time_left(), true)
 	
 func _format_seconds(time : float, use_milliseconds : bool) -> String:
 	var minutes := time / 60

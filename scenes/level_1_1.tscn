@@ -72,13 +72,19 @@ respawn_point = NodePath("../../Respawn Point")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 15.0
 
-[node name="Displays Timer" type="Label" parent="."]
-offset_left = 62.0
-offset_top = 72.0
-offset_right = 153.0
-offset_bottom = 95.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Displays Timer" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.5
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
 script = ExtResource("1_w725x")
 
 [connection signal="has_chosen" from="Level Choices/Bubble Good" to="." method="_on_bubble_good_has_chosen"]
 [connection signal="has_chosen" from="Level Choices/Bubble Bad" to="." method="_on_bubble_bad_has_chosen"]
-[connection signal="timeout" from="Timer" to="Displays Timer" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="CanvasLayer/Displays Timer" method="_on_timer_timeout"]

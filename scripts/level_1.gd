@@ -3,7 +3,7 @@ extends Node2D
 const CHAT_VERT_SPACING = 58
 const END = "end"
 const TYPING_LENGTH = 2
-const CHAT_EXCLUDE = ["Scripts", "Level 1-1", "Level 1-2", "Level 1-3", "Gate"]
+const CHAT_EXCLUDE = ["Scripts", "Level 1-1", "Level 1-2", "Level 1-3", "Gate", "Wall"]
 
 @onready var phone_screen_shape: CollisionShape2D = $"../PhoneScreen/CollisionShape2D"
 @onready var gate = $Gate
@@ -211,3 +211,7 @@ func _on_gate_body_entered(body):
 		level_1_1.start_timer()
 		entered = not entered
 		cleared = false
+	elif body.name == "Player" and cleared:
+		level_1_1.visible = false
+		$Gate/CollisionShape2D.set_deferred("disabled", true)
+		$Wall/CollisionShape2D.set_deferred("disabled", false)
