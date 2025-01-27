@@ -3,8 +3,11 @@ extends Node2D
 const CHAT_VERT_SPACING = 58
 const END = "end"
 const TYPING_LENGTH = 2
+const CHAT_EXCLUDE = ["Scripts", "Level 1-1", "Level 1-2", "Level 1-3", "Gate"]
 
 @onready var phone_screen_shape: CollisionShape2D = $"../PhoneScreen/CollisionShape2D"
+@onready var gate = $Gate
+@onready var level_1_1 = $"Level 1-1"
 
 @export var script_name: String = "level_1_scripts.gd"
 var first_msg = "ann-1"
@@ -16,6 +19,8 @@ var new_scroll_position_y
 var offset = 0
 var new_position = Vector2()
 var typing_bubble = preload("res://scenes/typingbubble.tscn")
+var entered = false
+var cleared = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,7 +35,7 @@ func _ready() -> void:
 	
 	# disable all children at first
 	for child in get_children():
-		if child.name == "Scripts": continue
+		if child.name in CHAT_EXCLUDE: continue
 		child.set_enabled(false)
 		
 	await _wait()
@@ -38,6 +43,32 @@ func _ready() -> void:
 	show_msg(first_msg)
 	
 	new_scroll_position_y = position.y
+	
+	level_1_1.has_chosen.connect(has_chosen)
+
+
+func has_chosen():
+	cleared = true
+	level_1_1.stop_timer()
+	
+	var new_msg
+	var choice = level_1_1.choice
+	if choice == "Good":
+		new_msg = paths[last_msg][0]
+		choice = 0
+		await fill_in_msg(last_msg, choice)
+		_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
+		show_typing_bubble()
+		await _wait(2)
+		await show_msg(new_msg)
+	elif choice == "Bad":
+		new_msg = paths[last_msg][1]
+		choice = 1
+		await fill_in_msg(last_msg, choice)
+		_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
+		show_typing_bubble()
+		await _wait(2)
+		await show_msg(new_msg)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,24 +88,24 @@ func _process(delta: float) -> void:
 	# if no end choice/end, then prevent from pressing left/right
 	if get_next_msg_id(last_msg) == END: return
 	
-	var new_msg
-	var choice
-	if Input.is_action_just_pressed("ui_left"): # good choice
-		new_msg = paths[last_msg][0]
-		choice = 0
-		await fill_in_msg(last_msg, choice)
-		_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
-		show_typing_bubble()
-		await _wait(2)
-		await show_msg(new_msg)
-	elif Input.is_action_just_pressed("ui_right"): # bad choice
-		new_msg = paths[last_msg][1]
-		choice = 1
-		await fill_in_msg(last_msg, choice)
-		_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
-		show_typing_bubble()
-		await _wait(2)
-		await show_msg(new_msg)
+	#var new_msg
+	#var choice
+	#if Input.is_action_just_pressed("ui_left"): # good choice
+		#new_msg = paths[last_msg][0]
+		#choice = 0
+		#await fill_in_msg(last_msg, choice)
+		#_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
+		#show_typing_bubble()
+		#await _wait(2)
+		#await show_msg(new_msg)
+	#elif Input.is_action_just_pressed("ui_right"): # bad choice
+		#new_msg = paths[last_msg][1]
+		#choice = 1
+		#await fill_in_msg(last_msg, choice)
+		#_set_next_msg_pos(get_node(last_msg), get_node(new_msg))
+		#show_typing_bubble()
+		#await _wait(2)
+		#await show_msg(new_msg)
 	#await _wait()
 	
 	
@@ -148,7 +179,7 @@ func _get_last_shown_msg():
 	var last_shown_msg = get_children()[0]
 	
 	for child in get_children():
-		if child.name == "Scripts": continue
+		if child.name in CHAT_EXCLUDE: continue
 		if child.visible: last_shown_msg = child
 	
 	return last_shown_msg
@@ -173,3 +204,10 @@ func _move_dmhub_up():
 	var last_shown_msg = _get_last_shown_msg()
 	new_scroll_position_y = position.y - (dm_dimension - phone_screen_shape.shape.size.y) - CHAT_VERT_SPACING
 	offset += (dm_dimension - phone_screen_shape.shape.size.y) + CHAT_VERT_SPACING
+
+
+func _on_gate_body_entered(body):
+	if body.name == "Player" and not entered:
+		level_1_1.start_timer()
+		entered = not entered
+		cleared = false
