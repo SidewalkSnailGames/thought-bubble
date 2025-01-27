@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=28 format=3 uid="uid://ektmw4m4h83s"]
 
 [ext_resource type="Script" path="res://scripts/inner_level.gd" id="1_4mynv"]
@@ -5,6 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://b8x10k3ch0skk" path="res://scenes/bubble_piece.tscn" id="3_2wflx"]
 [ext_resource type="PackedScene" uid="uid://dmps3ov2v0drf" path="res://scenes/sublevel_platform.tscn" id="4_hcv6t"]
 [ext_resource type="PackedScene" uid="uid://bctihso0vxcwr" path="res://scenes/spike.tscn" id="5_yqf2e"]
+=======
+[gd_scene load_steps=28 format=3 uid="uid://d1tntrfoi77sg"]
+
+[ext_resource type="PackedScene" path="res://scenes/button.tscn" id="2_wgvb7"]
+[ext_resource type="PackedScene" uid="uid://b8x10k3ch0skk" path="res://scenes/bubble_piece.tscn" id="3_2wflx"]
+[ext_resource type="PackedScene" uid="uid://bxw1qns3dju0t" path="res://scenes/sublevel_platform.tscn" id="4_hcv6t"]
+[ext_resource type="PackedScene" path="res://scenes/spike.tscn" id="5_yqf2e"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7apvl"]
 size = Vector2(1210, 20)
@@ -265,6 +274,8 @@ shape = SubResource("RectangleShape2D_4gd5s")
 position = Vector2(396, 638)
 shape = SubResource("RectangleShape2D_pbd83")
 
+<<<<<<< Updated upstream
+=======
 [node name="MeshInstance2D3" type="MeshInstance2D" parent="Boundaries"]
 position = Vector2(9, 40)
 scale = Vector2(22.9999, 99)
@@ -315,6 +326,7 @@ position = Vector2(1031.88, 722)
 scale = Vector2(343.75, 20)
 mesh = SubResource("BoxMesh_2a4sg")
 
+>>>>>>> Stashed changes
 [node name="Good" parent="." node_paths=PackedStringArray("respawn_point") instance=ExtResource("3_2wflx")]
 position = Vector2(1142, 769)
 respawn_point = NodePath("../Respawn Point")

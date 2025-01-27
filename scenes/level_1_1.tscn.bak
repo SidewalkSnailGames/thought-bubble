@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/inner_level.gd" id="1_0xpn5"]
 [ext_resource type="PackedScene" uid="uid://b8x10k3ch0skk" path="res://scenes/bubble_piece.tscn" id="1_7nsye"]
+<<<<<<< Updated upstream
+[ext_resource type="PackedScene" uid="uid://dmps3ov2v0drf" path="res://scenes/sublevel_platform.tscn" id="1_sq0mn"]
+=======
 [ext_resource type="PackedScene" uid="uid://bxw1qns3dju0t" path="res://scenes/sublevel_platform.tscn" id="1_sq0mn"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" path="res://scenes/label.gd" id="1_w725x"]
 [ext_resource type="PackedScene" path="res://scenes/spike.tscn" id="5_hp04q"]
 

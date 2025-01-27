@@ -300,6 +300,7 @@ libraries = {
 }
 autoplay = "Plat3_move"
 
+<<<<<<< Updated upstream
 [node name="Spikes" type="Node2D" parent="."]
 position = Vector2(82, 390)
 
@@ -342,6 +343,8 @@ respawn_point = NodePath("../../Respawn Point")
 position = Vector2(1449, 0)
 respawn_point = NodePath("../../Respawn Point")
 
+=======
+>>>>>>> Stashed changes
 [node name="Timer" type="Timer" parent="."]
 wait_time = 25.0
 autostart = true
