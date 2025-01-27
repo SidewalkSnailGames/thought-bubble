@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://btqooaavfhto6" path="res://assets/sidewalksnailgameslogo.PNG" id="6_1dxk4"]
 [ext_resource type="Texture2D" uid="uid://bssc6qbee57dg" path="res://assets/thought bubble platforms/Emotes2.png" id="7_ompbo"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_ibc00"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_yxwlp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_b8roi"]
@@ -22,6 +24,11 @@ script = ExtResource("1_lnhkg")
 [node name="background" parent="." instance=ExtResource("1_hypwy")]
 position = Vector2(1411, 239)
 scale = Vector2(0.336543, 0.336543)
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="."]
+position = Vector2(855, 825)
+scale = Vector2(5065, 542)
+mesh = SubResource("BoxMesh_ibc00")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 position = Vector2(-312, 355)
